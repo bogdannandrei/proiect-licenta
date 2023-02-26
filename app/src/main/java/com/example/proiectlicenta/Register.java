@@ -31,10 +31,10 @@ public class Register extends AppCompatActivity {
         final EditText password = findViewById(R.id.password);
         final EditText conPassword = findViewById(R.id.conpassword);
 
-        final Button registerBtn = findViewById(R.id.registerBtn);
+        final Button goalsBtn = findViewById(R.id.goalsBtn);
         final TextView loginNowBtn = findViewById(R.id.loginNowBtn);
 
-        registerBtn.setOnClickListener(new View.OnClickListener() {
+        goalsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String fullnameTxt = fullname.getText().toString();
@@ -61,7 +61,6 @@ public class Register extends AppCompatActivity {
                                 databaseReference.child("users").child(phoneTxt).child("fullname").setValue(fullnameTxt);
                                 databaseReference.child("users").child(phoneTxt).child("email").setValue(emailTxt);
                                 databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
-
                                 Toast.makeText(Register.this, "User registered successfully!", Toast.LENGTH_SHORT).show();
                                 finish();
                             }

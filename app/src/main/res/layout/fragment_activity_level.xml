@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:gravity="center"
+    tools:context=".Goals">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Baseline activity level"
+        android:gravity="start"
+        android:textSize="30dp"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose the one that suits you best"
+        android:gravity="start"
+        android:textSize="16dp"
+        android:layout_marginBottom="15dp"/>
+
+    <RadioGroup
+        android:id="@+id/goalsRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/notVeryActiveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not very active"
+            />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/lightlyActiveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lightly active"
+            />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/activeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Active" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/veryActiveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Very active"
+            />
+    </RadioGroup>
+
+
+</LinearLayout>
+

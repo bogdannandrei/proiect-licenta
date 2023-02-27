@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="30dp"
+    tools:context=".Goals">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Setting up your goals"
+        android:gravity="start"
+        android:textSize="30dp"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Which one is more important for you?"
+        android:gravity="start"
+        android:textSize="16dp"
+        android:layout_marginBottom="15dp"/>
+
+    <RadioGroup
+        android:id="@+id/goalsRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/loseWeightBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Losing weight"
+            />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/maintainWeightBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maintaining weight"
+            />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/gainWeightBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gaining weight" />
+    </RadioGroup>
+    
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"/>
+
+</LinearLayout>
+

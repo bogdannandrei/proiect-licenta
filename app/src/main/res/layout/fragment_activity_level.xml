@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context=".Goals">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Baseline activity level"
+            android:textSize="30dp"
+            android:layout_marginBottom="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose the one that suits you best"
+            android:gravity="start"
+            android:textSize="16dp"
+            android:layout_marginBottom="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginTop="15dp">
+
+        <RadioGroup
+            android:id="@+id/activityLevelRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/bmrBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="BMR (Basal Metabolic Rate)"
+                />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/sedentaryBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sedentary (little to no exercise)"
+                />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/lightBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Light (exercise 1-3 times/week)"
+                />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/moderateBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Moderate (exercise 4-5 times/week)"
+                />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/veryActiveBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Very active (daily exercise)"
+                />
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next" />
+    </LinearLayout>
+</LinearLayout>
+
+

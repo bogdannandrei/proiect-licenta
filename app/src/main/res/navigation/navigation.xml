@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/setUpGoals">
+    <fragment
+        android:id="@+id/setUpGoals"
+        android:name="com.example.proiectlicenta.setUpGoals"
+        android:label="fragment_set_up_goals"
+        tools:layout="@layout/fragment_set_up_goals" >
+        <action
+            android:id="@+id/action_setUpGoals_to_activity_level"
+            app:destination="@id/activity_level" />
+    </fragment>
+    <fragment
+        android:id="@+id/activity_level"
+        android:name="com.example.proiectlicenta.activity_level"
+        android:label="activity_level" >
+        <action
+            android:id="@+id/action_activity_level_to_additional_information"
+            app:destination="@id/additional_information" />
+    </fragment>
+    <fragment
+        android:id="@+id/additional_information"
+        android:name="com.example.proiectlicenta.Additional_information"
+        android:label="fragment_additional_information"
+        tools:layout="@layout/fragment_additional_information" >
+        <action
+            android:id="@+id/action_additional_information_to_additional_information2"
+            app:destination="@id/additional_information2" />
+    </fragment>
+    <fragment
+        android:id="@+id/additional_information2"
+        android:name="com.example.proiectlicenta.additional_information2"
+        android:label="fragment_additional_information2"
+        tools:layout="@layout/fragment_additional_information2" />
+</navigation>

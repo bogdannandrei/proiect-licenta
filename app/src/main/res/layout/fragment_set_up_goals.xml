@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="30dp"
+tools:context=".setUpGoals">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Setting your goals"
+        android:textSize="30dp"
+        android:layout_marginBottom="15dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Which one is more important for you?"
+        android:gravity="start"
+        android:textSize="16dp"
+        android:layout_marginBottom="30dp"/>
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_weight="1"
+    android:layout_paddingTop="15dp">
+
+    <RadioGroup
+        android:id="@+id/activityLevelRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/loseWeightBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Losing weight (0.5 kg/week)"
+            />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/mildLoseWeightBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mildly losing weight (0.25 kg/week)"
+            />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/maintainBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Maintaining weight"
+            />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/mildGainWeightBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mildly gaining weight (0.2 kg/week)"
+            />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/gainWeightBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gaining weight (0.5 kg/week)"
+            />
+
+    </RadioGroup>
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next" />
+</LinearLayout>
+</LinearLayout>
+
+

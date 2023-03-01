@@ -3,22 +3,17 @@ package com.example.proiectlicenta;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link setUpGoals#newInstance} factory method to
+ * Use the {@link final_reg#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class setUpGoals extends Fragment {
+public class final_reg extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +24,7 @@ public class setUpGoals extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public setUpGoals() {
+    public final_reg() {
         // Required empty public constructor
     }
 
@@ -39,11 +34,11 @@ public class setUpGoals extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment setUpGoals.
+     * @return A new instance of fragment final_reg.
      */
     // TODO: Rename and change types and number of parameters
-    public static setUpGoals newInstance(String param1, String param2) {
-        setUpGoals fragment = new setUpGoals();
+    public static final_reg newInstance(String param1, String param2) {
+        final_reg fragment = new final_reg();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -55,7 +50,8 @@ public class setUpGoals extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -63,21 +59,6 @@ public class setUpGoals extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_set_up_goals, container, false);
-        RadioGroup rg = (RadioGroup) view.findViewById(R.id.activityLevelRadioGroup);
-        Button nextBtn = (Button) view.findViewById(R.id.nextBtn);
-        Bundle b = new Bundle();
-        
-        nextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int radioButtonID = rg.getCheckedRadioButtonId();
-                RadioButton radioButton = (RadioButton) rg.findViewById(radioButtonID);
-                String selectedText = (String) radioButton.getText();
-                b.putString("activity_level",selectedText);
-                Navigation.findNavController(view).navigate(R.id.action_setUpGoals_to_activity_level, b);
-            }
-        });
-        return view;
+        return inflater.inflate(R.layout.fragment_final_reg, container, false);
     }
 }

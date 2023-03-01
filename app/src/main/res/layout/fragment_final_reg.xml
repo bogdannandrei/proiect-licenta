@@ -12,18 +12,19 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="25dp" >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adding additional info"
+            android:text="Almost there!"
             android:textSize="30dp"
             android:layout_marginBottom="15dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Please answer these questions"
+            android:text="Please fill in these forms."
             android:gravity="start"
             android:textSize="16dp"
             android:layout_marginBottom="30dp"/>
@@ -34,54 +35,54 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_weight="1"
-        android:paddingTop="15dp">
+        android:paddingTop="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="What gender are you?"
-            android:gravity="start"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp" />
-
-        <RadioGroup
-            android:id="@+id/genderRadioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/maleBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Male" />
-
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/femaleBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Female" />
-        </RadioGroup>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="When were you born?"
-            android:gravity="start"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp" />
-
-        <DatePicker
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:datePickerMode="spinner"
-            android:calendarViewShown="false"
-            android:id="@+id/calendar"
-            />
+            android:inputType="text"
+            android:id="@+id/fullname"
+            android:hint="Full Name"
+            android:maxLines="1"
+            android:layout_marginBottom="15dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:id="@+id/email"
+            android:hint="E-mail"
+            android:maxLines="1"
+            android:layout_marginBottom="15dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:id="@+id/phone"
+            android:hint="Mobile"
+            android:maxLines="1"
+            android:layout_marginBottom="15dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:id="@+id/conpassword"
+            android:hint="Password"
+            android:maxLines="1"
+            android:layout_marginBottom="15dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:id="@+id/password"
+            android:hint="Confirm Password"
+            android:maxLines="1" />
+
 
 
     </LinearLayout>
@@ -89,12 +90,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/nextBtn"
+            android:id="@+id/goalsBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next" />
+            android:text="Finish"/>
     </LinearLayout>
 </LinearLayout>
 

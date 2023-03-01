@@ -34,5 +34,14 @@
         android:id="@+id/additional_information2"
         android:name="com.example.proiectlicenta.additional_information2"
         android:label="fragment_additional_information2"
-        tools:layout="@layout/fragment_additional_information2" />
+        tools:layout="@layout/fragment_additional_information2" >
+        <action
+            android:id="@+id/action_additional_information2_to_final_reg"
+            app:destination="@id/final_reg" />
+    </fragment>
+    <fragment
+        android:id="@+id/final_reg"
+        android:name="com.example.proiectlicenta.final_reg"
+        android:label="fragment_final_reg"
+        tools:layout="@layout/fragment_final_reg" />
 </navigation>

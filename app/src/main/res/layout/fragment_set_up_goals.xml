@@ -34,7 +34,7 @@ tools:context=".setUpGoals">
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_weight="1"
-    android:layout_paddingTop="15dp">
+    android:paddingTop="15dp">
 
     <RadioGroup
         android:id="@+id/activityLevelRadioGroup"
@@ -83,7 +83,9 @@ tools:context=".setUpGoals">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nextBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Next" />

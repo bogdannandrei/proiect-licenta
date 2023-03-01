@@ -3,10 +3,14 @@ package com.example.proiectlicenta;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +63,21 @@ public class activity_level extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_activity_level, container, false);
+        View view = inflater.inflate(R.layout.fragment_activity_level, container, false);
+        RadioGroup rg = (RadioGroup) view.findViewById(R.id.activityLevelRadioGroup);
+        Button nextBtn = (Button) view.findViewById(R.id.nextBtn);
+        Bundle b = new Bundle();
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int radioButtonID = rg.getCheckedRadioButtonId();
+                RadioButton radioButton = (RadioButton) rg.findViewById(radioButtonID);
+                String selectedText = (String) radioButton.getText();
+                b.putString("goal",selectedText);
+                Navigation.findNavController(view).navigate(R.id.action_activity_level_to_additional_information, b);
+            }
+        });
+        return view;
     }
 }

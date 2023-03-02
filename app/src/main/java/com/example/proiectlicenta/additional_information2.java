@@ -3,10 +3,19 @@ package com.example.proiectlicenta;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+
+import java.time.LocalDate;
+import java.time.Period;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +68,22 @@ public class additional_information2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_additional_information2, container, false);
+        View view = inflater.inflate(R.layout.fragment_additional_information2, container, false);
+        EditText height = (EditText) view.findViewById(R.id.height);
+        EditText currentWeight = (EditText) view.findViewById(R.id.currentWeight);
+        EditText goalWeight = (EditText) view.findViewById(R.id.goalWeight);
+        Button nextBtn = (Button) view.findViewById(R.id.nextBtn);
+        Bundle b = getArguments();
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                b.putInt("height", Integer.parseInt(height.getText().toString()));
+                b.putInt("currentWeight", Integer.parseInt(currentWeight.getText().toString()));
+                b.putInt("goalWeight", Integer.parseInt(goalWeight.getText().toString()));
+                //Navigation.findNavController(view).navigate(R.id.action_additional_information2_to_final_reg, b);
+            }
+        });
+        return view;
     }
 }

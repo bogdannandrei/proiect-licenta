@@ -74,7 +74,7 @@ public class activity_level extends Fragment {
                 int radioButtonID = rg.getCheckedRadioButtonId();
                 RadioButton radioButton = (RadioButton) rg.findViewById(radioButtonID);
                 String selectedText = (String) radioButton.getText();
-                b.putString("goal",selectedText);
+                b.putString("activity_level",selectedText);
                 Navigation.findNavController(view).navigate(R.id.action_activity_level_to_additional_information, b);
             }
         });

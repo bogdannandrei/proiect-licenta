@@ -67,7 +67,7 @@ tools:context=".setUpGoals">
             android:id="@+id/mildGainWeightBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mildly gaining weight (0.2 kg/week)"
+            android:text="Mildly gaining weight (0.25 kg/week)"
             />
 
         <androidx.appcompat.widget.AppCompatRadioButton

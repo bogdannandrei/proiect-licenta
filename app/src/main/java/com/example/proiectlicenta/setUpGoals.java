@@ -55,7 +55,8 @@ public class setUpGoals extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -74,7 +75,7 @@ public class setUpGoals extends Fragment {
                 int radioButtonID = rg.getCheckedRadioButtonId();
                 RadioButton radioButton = (RadioButton) rg.findViewById(radioButtonID);
                 String selectedText = (String) radioButton.getText();
-                b.putString("goals",selectedText);
+                b.putString("goals", selectedText);
                 Navigation.findNavController(view).navigate(R.id.action_setUpGoals_to_activity_level, b);
             }
         });

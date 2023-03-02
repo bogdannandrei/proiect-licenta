@@ -19,6 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Random;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link final_reg#newInstance} factory method to
@@ -78,6 +80,76 @@ public class final_reg extends Fragment {
         final EditText conPassword = view.findViewById(R.id.conpassword);
         final Button nextBtn = view.findViewById(R.id.nextBtn);
         Bundle b = getArguments();
+        final String goals = b.getString("goals");
+        final String activityLevel = b.getString("activity_level");
+        final String gender = b.getString("gender");
+        final int age = b.getInt("age");
+        final int height = b.getInt("height");
+        final int currentWeight = b.getInt("currentWeight");
+        final int goalWeight = b.getInt("goalWeight");
+        double BMR = 0.0;
+        double cal = 0.0;
+
+        switch(gender){
+            case "Male":
+                BMR = (5 + (10 * currentWeight) + (6.25 * height) - (5 * age));
+                break;
+            case "Female":
+                BMR = ((10 * currentWeight) + (6.25 * height) - (5 * age) - 161);
+                break;
+        }
+        System.out.println("Passed gender= "+gender+", BMR="+BMR+" cal="+cal);
+
+        cal=BMR;
+        switch(activityLevel){
+            case "BMR (Basal Metabolic Rate)":
+                break;
+            case "Sedentary (little to no exercise)":
+                cal *= 1.4;
+                break;
+            case "Light (exercise 1-3 times/week)":
+                cal *= 1.69;
+                break;
+            case "Moderate (exercise 4-5 times/week)":
+                cal *= 2;
+                break;
+            case "Very active (daily exercise)":
+                cal *= 2.3;
+                break;
+        }
+        System.out.println("Passed actlvl="+activityLevel+", BMR="+BMR+" cal="+cal);
+
+        switch(goals){
+            case "Losing weight (0.5 kg/week)":
+                cal -= 250;
+                break;
+            case "Mildly losing weight (0.25 kg/week)":
+                cal -=125;
+                break;
+            case "Maintaining weight":
+                break;
+            case "Mildly gaining weight (0.25 kg/week)":
+                cal+=125;
+                break;
+            case "Gaining weight (0.5 kg/week)":
+                cal += 250;
+                break;
+        }
+        System.out.println("Passed goals="+goals+", BMR="+BMR+" cal="+cal);
+
+        double totalCalories = (Math.round(cal + 0.5));
+        Random r = new Random();
+        double dailyProtein = Math.round(currentWeight * (2+(2.2-2)*(r.nextDouble())));
+        double dailyFats = Math.round(50 + (r.nextDouble() * (80 - 50)));
+        double remCals = totalCalories - (dailyProtein * 4) - (dailyFats * 9);
+        double dailyCarb = remCals / 4;
+        System.out.println("Total calories:" +totalCalories+"\nCarb="+dailyCarb+"\nProtein="+dailyProtein+"\nFats="+dailyFats);
+
+        b.putDouble("cal",totalCalories);
+        b.putDouble("carb",dailyCarb);
+        b.putDouble("protein",dailyProtein);
+        b.putDouble("fats",dailyFats);
+        System.out.println("Macros added");
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,45 +159,12 @@ public class final_reg extends Fragment {
                 final String phoneTxt = phone.getText().toString();
                 final String passwordTxt = password.getText().toString();
                 final String conPasswordTxt = conPassword.getText().toString();
-                final String goals = b.getString("goals");
-                final String activityLevel = b.getString("activity_level");
-                final String gender = b.getString("gender");
-                final int age = b.getInt("age");
-                final int height = b.getInt("height");
-                final int currentWeight = b.getInt("currentWeight");
-                final int goalWeight = b.getInt("goalWeight");
-                int BMR = 0;
-                double cal = 0;
 
                 if (fullnameTxt.isEmpty() || emailTxt.isEmpty() || phoneTxt.isEmpty() || passwordTxt.isEmpty() || conPasswordTxt.isEmpty()) {
                     Toast.makeText(getActivity(), "Please fill in all fields!", Toast.LENGTH_SHORT).show();
                 } else if (!passwordTxt.equals(conPasswordTxt)) {
                     Toast.makeText(getActivity(), "Passwords are not matching!", Toast.LENGTH_SHORT).show();
                 } else {
-                    switch(gender){
-                        case "Male":   BMR = (int) (5 + (10 * currentWeight) + (6.25 * height) - (5 * age)); break;
-                        case "Female": BMR = (int) ((10 * currentWeight) + (6.25 * height) - (5 * age) - 161); break;
-                        default: break;
-                    }
-
-                    switch(activityLevel){
-                        case "BMR (Basal Metabolic Rate)": cal = BMR; break;
-                        case "Sedentary (little to no exercise)": cal = BMR * 1.4; break;
-                        case "Light (exercise 1-3 times/week)": cal = BMR * 1.69; break;
-                        case "Moderate (exercise 4-5 times/week)": cal = BMR * 2; break;
-                        case "Very active (daily exercise):": cal = BMR * 2.3;
-                        default: break;
-                    }
-
-                    switch(goals){
-                        case "Losing weight (0.5 kg/week)": cal -= 250; break;
-                        case "Mildly losing weight (0.25 kg/week)": cal -=125; break;
-                        case "Maintaining weight": cal= cal; break;
-                        case "Mildly gaining weight (0.25 kg/week)": cal+=125; break;
-                        case "Gaining weight (0.5 kg/week)": cal += 250; break;
-                    }
-
-                    int totalCalories = (int)(Math.round(cal + 0.5));
                     databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -143,9 +182,9 @@ public class final_reg extends Fragment {
                                 databaseReference.child("users").child(phoneTxt).child("current_weight").setValue(currentWeight);
                                 databaseReference.child("users").child(phoneTxt).child("goal_weight").setValue(goalWeight);
                                 databaseReference.child("users").child(phoneTxt).child("total_calories").setValue(totalCalories);
-
-                                Toast.makeText(getActivity(), "User registered successfully!", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
+                                databaseReference.child("users").child(phoneTxt).child("daily_carb").setValue(dailyCarb);
+                                databaseReference.child("users").child(phoneTxt).child("daily_protein").setValue(dailyProtein);
+                                databaseReference.child("users").child(phoneTxt).child("daily_fats").setValue(dailyFats);
                             }
                         }
 
@@ -154,6 +193,7 @@ public class final_reg extends Fragment {
 
                         }
                     });
+                    Navigation.findNavController(view).navigate(R.id.action_final_reg_to_reg_screen, b);
                 }
             }
         });

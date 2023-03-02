@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,7 +62,29 @@ public class reg_screen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_final_reg, container, false);
+        View view = inflater.inflate(R.layout.fragment_reg_screen, container, false);
+        TextView dailyCalorieText = view.findViewById(R.id.calorieTextView);
+        TextView dailyCarbsText = view.findViewById(R.id.carbsTextView);
+        TextView dailyProteinText = view.findViewById(R.id.proteinTextView);
+        TextView dailyFatsText = view.findViewById(R.id.fatsTextView);
+        Button nextBtn = view.findViewById(R.id.nextBtn);
+        Bundle b = getArguments();
+
+        int totalCalories = b.getInt("cal");
+        int dailyCarb = b.getInt("carb");
+        int dailyProtein = b.getInt("protein");
+        int dailyFats = b.getInt("fats");
+
+        dailyCalorieText.setText(totalCalories + " calories");
+        dailyCarbsText.setText(dailyCarb + " grams");
+        dailyProteinText.setText(dailyProtein + " grams");
+        dailyFatsText.setText(dailyFats + " grams");
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
         return view;
     }
 }

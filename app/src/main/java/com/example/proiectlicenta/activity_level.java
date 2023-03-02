@@ -66,7 +66,7 @@ public class activity_level extends Fragment {
         View view = inflater.inflate(R.layout.fragment_activity_level, container, false);
         RadioGroup rg = (RadioGroup) view.findViewById(R.id.activityLevelRadioGroup);
         Button nextBtn = (Button) view.findViewById(R.id.nextBtn);
-        Bundle b = new Bundle();
+        Bundle b = getArguments();
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override

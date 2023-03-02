@@ -81,7 +81,7 @@ public class additional_information2 extends Fragment {
                 b.putInt("height", Integer.parseInt(height.getText().toString()));
                 b.putInt("currentWeight", Integer.parseInt(currentWeight.getText().toString()));
                 b.putInt("goalWeight", Integer.parseInt(goalWeight.getText().toString()));
-                //Navigation.findNavController(view).navigate(R.id.action_additional_information2_to_final_reg, b);
+                Navigation.findNavController(view).navigate(R.id.action_additional_information2_to_final_reg, b);
             }
         });
         return view;

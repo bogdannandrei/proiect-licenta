@@ -70,10 +70,10 @@ public class reg_screen extends Fragment {
         Button nextBtn = view.findViewById(R.id.nextBtn);
         Bundle b = getArguments();
 
-        int totalCalories = b.getInt("cal");
-        int dailyCarb = b.getInt("carb");
-        int dailyProtein = b.getInt("protein");
-        int dailyFats = b.getInt("fats");
+        double totalCalories = b.getDouble("cal");
+        double dailyCarb = b.getDouble("carb");
+        double dailyProtein = b.getDouble("protein");
+        double dailyFats = b.getDouble("fats");
 
         dailyCalorieText.setText(totalCalories + " calories");
         dailyCarbsText.setText(dailyCarb + " grams");

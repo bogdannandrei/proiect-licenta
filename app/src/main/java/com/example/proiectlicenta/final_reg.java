@@ -108,13 +108,13 @@ public class final_reg extends Fragment {
                 cal *= 1.4;
                 break;
             case "Light (exercise 1-3 times/week)":
-                cal *= 1.69;
+                cal *= 1.6;
                 break;
             case "Moderate (exercise 4-5 times/week)":
-                cal *= 2;
+                cal *= 1.8;
                 break;
             case "Very active (daily exercise)":
-                cal *= 2.3;
+                cal *= 2;
                 break;
         }
         System.out.println("Passed actlvl="+activityLevel+", BMR="+BMR+" cal="+cal);
@@ -140,7 +140,7 @@ public class final_reg extends Fragment {
         double totalCalories = (Math.round(cal + 0.5));
         Random r = new Random();
         double dailyProtein = Math.round(currentWeight * (2+(2.2-2)*(r.nextDouble())));
-        double dailyFats = Math.round(50 + (r.nextDouble() * (80 - 50)));
+        double dailyFats = Math.round(70 + (r.nextDouble() * (100 - 70)));
         double remCals = totalCalories - (dailyProtein * 4) - (dailyFats * 9);
         double dailyCarb = remCals / 4;
         System.out.println("Total calories:" +totalCalories+"\nCarb="+dailyCarb+"\nProtein="+dailyProtein+"\nFats="+dailyFats);

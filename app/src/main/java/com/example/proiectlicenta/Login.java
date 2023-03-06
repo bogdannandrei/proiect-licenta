@@ -25,6 +25,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Bundle b = new Bundle();
         final EditText phone = findViewById(R.id.phone);
         final EditText password = findViewById(R.id.password);
         final Button loginBtn = findViewById(R.id.loginBtn);
@@ -47,8 +48,11 @@ public class Login extends AppCompatActivity {
                             if(snapshot.hasChild(phoneTxt)){
                                 final String getPassword = snapshot.child(phoneTxt).child("password").getValue(String.class);
                                 if(getPassword.equals(passwordTxt)){
+                                    b.putString("phone",phoneTxt);
                                     Toast.makeText(Login.this, "Login successfully!", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(Login.this, MainActivity.class));
+                                    Intent intent = new Intent(Login.this, MainActivity.class);
+                                    intent.putExtras(b);
+                                    startActivity(intent);
                                     finish();
                                 }
                                 else{

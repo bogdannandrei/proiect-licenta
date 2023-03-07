@@ -20,12 +20,16 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton floatingActionButton;
     private String phone_number;
 
-    private void replaceFragment (Fragment fragment){
+    private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Bundle args = new Bundle();
+        args.putString("phone", phone_number); // add phone argument
+        fragment.setArguments(args); // set fragment arguments
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.commit();
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         floatingActionButton = findViewById(R.id.fab);
+
+        Bundle b = new Bundle();
         phone_number = getIntent().getStringExtra("phone");
+        b.putString("phone",phone_number);
 
 
         replaceFragment(new Dashboard());

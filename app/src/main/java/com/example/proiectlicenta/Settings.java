@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,9 +60,13 @@ public class Settings extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        String phoneNumber = getArguments().getString("phone_number");
-
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
+        String phoneNumber = getArguments().getString("phone");
+        TextView tv = view.findViewById(R.id.tv);
+
+        tv.setText("nr: "+ phoneNumber);
+
+
         return view;
     }
 }

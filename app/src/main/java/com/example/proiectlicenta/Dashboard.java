@@ -7,6 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,7 +19,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Dashboard extends Fragment {
-
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app").getReference();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,19 +33,19 @@ public class Dashboard extends Fragment {
         // Required empty public constructor
     }
 
-    /*
+    /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Dashboard.
+     * @return A new instance of fragment test.
      */
     // TODO: Rename and change types and number of parameters
     public static Dashboard newInstance(String phoneNumber) {
         Dashboard fragment = new Dashboard();
         Bundle args = new Bundle();
-        args.putString("phone_number", phoneNumber);
+        args.putString("phone", phoneNumber);
         fragment.setArguments(args);
         return fragment;
     }
@@ -58,9 +63,14 @@ public class Dashboard extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        String phoneNumber = getArguments().getString("phone_number");
+
 
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        TextView tv = view.findViewById(R.id.tv);
+        CircularProgressIndicator cpi = view.findViewById(R.id.progress_circular);
+        cpi.setProgress(50);
+        String phoneNumber = getArguments().getString("phone");
+        tv.setText("nr: "+ phoneNumber);
         return view;
     }
 }

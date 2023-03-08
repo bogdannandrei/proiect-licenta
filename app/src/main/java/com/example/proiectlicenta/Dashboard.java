@@ -67,8 +67,6 @@ public class Dashboard extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         TextView tv = view.findViewById(R.id.tv);
-        CircularProgressIndicator cpi = view.findViewById(R.id.progress_circular);
-        cpi.setProgress(50);
         String phoneNumber = getArguments().getString("phone");
         tv.setText("nr: "+ phoneNumber);
         return view;

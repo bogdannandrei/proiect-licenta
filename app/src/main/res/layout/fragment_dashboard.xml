@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Calories"
-            android:textSize="24dp"
+            android:textSize="22dp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -49,10 +49,9 @@
 
             <RelativeLayout
                 android:layout_width="15dp"
-                android:layout_height="200dp"
+                android:layout_height="175dp"
                 android:layout_weight="1"
                 >
-                <!-- Add circular progress bar here -->
 
                 <ProgressBar
                     android:id="@+id/progress_bar"
@@ -76,6 +75,16 @@
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/bottom_cal_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cal_progress_bar_text"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="15dp"
+                    android:text="Remaining"
+                    android:textStyle="bold" />
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="0dp"
@@ -138,12 +147,165 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="15dp"/>
-    </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
 
 </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="#DADADA"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Macros"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/textview_left_carb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carbohydrates"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/textview_right_carb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x g / x g"
+                android:textSize="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <ProgressBar
+                android:id="@+id/carb_horizontal_progressbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_below="@+id/textview_left_carb"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:indeterminate="false"
+                android:progress="50"
+                android:progressTint="#00BFFF"
+                android:secondaryProgressTint="#00BFFF" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/textview_left_protein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Protein"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/textview_right_protein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x g / x g"
+                android:textSize="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <ProgressBar
+                android:id="@+id/protein_horizontal_progressbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_below="@+id/textview_left_protein"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:indeterminate="false"
+                android:progress="50"
+                android:progressTint="#00FF00"
+                android:secondaryProgressTint="#00FF00" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/fats_textview_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fats"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/fats_textview_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x g / x g"
+                android:textSize="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <ProgressBar
+                android:id="@+id/fats_horizontal_progressbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_below="@+id/fats_textview_left"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:indeterminate="false"
+                android:progress="50"
+                android:progressTint="#FFFF00"
+                android:secondaryProgressTint="#FFFF00"/>
+        </RelativeLayout>
+
 
 
     </LinearLayout>
-
 </LinearLayout>

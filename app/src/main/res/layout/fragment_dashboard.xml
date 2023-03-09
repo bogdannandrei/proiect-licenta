@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="#DADADA"
+        android:background="#F5F5F5"
         android:orientation="vertical">
 
         <TextView
@@ -98,6 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Total calories:"
+            android:id="@+id/totalCaloriesTv"
             android:textColor="#333333"
             android:textSize="16sp"
             android:textStyle="bold"/>
@@ -159,7 +160,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
-        android:background="#DADADA"
+        android:background="#F5F5F5"
         android:orientation="vertical">
 
         <TextView
@@ -191,7 +192,7 @@
                 android:layout_marginTop="16dp"/>
 
             <TextView
-                android:id="@+id/textview_right_carb"
+                android:id="@+id/carb_textview_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="x g / x g"
@@ -235,7 +236,7 @@
                 android:layout_marginTop="16dp"/>
 
             <TextView
-                android:id="@+id/textview_right_protein"
+                android:id="@+id/protein_textview_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="x g / x g"

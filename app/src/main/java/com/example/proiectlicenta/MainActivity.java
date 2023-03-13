@@ -41,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle b = new Bundle();
         phone_number = getIntent().getStringExtra("phone");
-        b.putString("phone",phone_number);
-
+        b.putString("phone", phone_number);
 
         replaceFragment(new Dashboard());
 

@@ -1,14 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddFoodToDb">
+    tools:context=".AddFoodToDb"
+    android:orientation="vertical"
+    android:backgroundTint="#ccc">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/lin_layout_lightgrey_border">
 
-</FrameLayout>
+        <!-- Left TextView -->
+        <TextView
+            android:id="@+id/brandname_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Brand name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+
+        <!-- Right EditText -->
+        <EditText
+            android:id="@+id/brandname_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:gravity="right"
+            android:hint="ex: K-Classic"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/lin_layout_lightgrey_border">
+
+        <!-- Left TextView -->
+        <TextView
+            android:id="@+id/foodname_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Food name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+
+        <!-- Right EditText -->
+        <EditText
+            android:id="@+id/foodname_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:gravity="right"
+            android:hint="ex: Cornflakes"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/lin_layout_lightgrey_border">
+
+        <!-- Left TextView -->
+        <TextView
+            android:id="@+id/barcode_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:text="Barcode"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+
+        <!-- Right EditText -->
+        <EditText
+            android:id="@+id/barcode_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:gravity="right"
+            android:hint="Press the barcode button"
+            android:layout_marginRight="10dp"/>
+
+        <ImageButton
+            android:layout_marginTop="16dp"
+            android:id="@+id/barcode_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_document_scanner_24"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/lin_layout_lightgrey_border">
+
+        <!-- Left TextView -->
+        <TextView
+            android:id="@+id/calories_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total calories / 100g"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+
+        <!-- Right EditText -->
+        <EditText
+            android:id="@+id/calories_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:gravity="right"
+            android:hint="ex: 500"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/lin_layout_lightgrey_border">
+
+        <!-- Left TextView -->
+        <TextView
+            android:id="@+id/carb_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total carbohydrates / 100g"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+
+        <!-- Right EditText -->
+        <EditText
+            android:id="@+id/carb_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:gravity="right"
+            android:hint="ex: 50"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/lin_layout_lightgrey_border">
+
+        <!-- Left TextView -->
+        <TextView
+            android:id="@+id/protein_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:text="Total protein / 100g"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+
+        <!-- Right EditText -->
+        <EditText
+            android:id="@+id/protein_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:gravity="right"
+            android:hint="ex: 50"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/lin_layout_lightgrey_border">
+
+        <!-- Left TextView -->
+        <TextView
+            android:id="@+id/left_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total fats / 100g"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+
+        <!-- Right EditText -->
+        <EditText
+            android:id="@+id/right_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:gravity="right"
+            android:hint="ex: 50"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:id="@+id/create_food_btn"
+        android:text="Create food"
+        android:backgroundTint="#D3D3D3"
+        android:textColor="#000000"
+        android>
+
+</LinearLayout>

@@ -39,8 +39,8 @@ public class Settings extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
 
-    public static Dashboard newInstance(String phoneNumber) {
-        Dashboard fragment = new Dashboard();
+    public static Settings newInstance(String phoneNumber) {
+        Settings fragment = new Settings();
         Bundle args = new Bundle();
         args.putString("phone_number", phoneNumber);
         fragment.setArguments(args);

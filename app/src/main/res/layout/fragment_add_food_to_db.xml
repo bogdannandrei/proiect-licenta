@@ -35,6 +35,7 @@
             android:textSize="16sp"
             android:padding="8dp"
             android:gravity="right"
+            android:inputType="text"
             android:hint="ex: K-Classic"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
@@ -66,6 +67,7 @@
             android:textSize="16sp"
             android:padding="8dp"
             android:gravity="right"
+            android:inputType=""
             android:hint="ex: Cornflakes"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
@@ -97,6 +99,7 @@
             android:textSize="16sp"
             android:padding="8dp"
             android:gravity="right"
+            android:inputType="none|number"
             android:hint="Press the barcode button"
             android:layout_marginRight="10dp"/>
 
@@ -135,6 +138,7 @@
             android:textSize="16sp"
             android:padding="8dp"
             android:gravity="right"
+            android:inputType="number"
             android:hint="ex: 500"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
@@ -198,6 +202,7 @@
             android:padding="8dp"
             android:gravity="right"
             android:hint="ex: 50"
+            android:inputType="number"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
 
@@ -209,7 +214,7 @@
 
         <!-- Left TextView -->
         <TextView
-            android:id="@+id/left_textview"
+            android:id="@+id/fats_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -220,7 +225,7 @@
 
         <!-- Right EditText -->
         <EditText
-            android:id="@+id/right_edittext"
+            android:id="@+id/fats_et"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -229,6 +234,7 @@
             android:padding="8dp"
             android:gravity="right"
             android:hint="ex: 50"
+            android:inputType="number"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
 
@@ -240,7 +246,6 @@
         android:id="@+id/create_food_btn"
         android:text="Create food"
         android:backgroundTint="#D3D3D3"
-        android:textColor="#000000"
-        android>
+        android:textColor="#000000"/>
 
 </LinearLayout>

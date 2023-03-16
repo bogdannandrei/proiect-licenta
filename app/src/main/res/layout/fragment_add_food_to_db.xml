@@ -99,15 +99,14 @@
             android:textSize="16sp"
             android:padding="8dp"
             android:gravity="right"
-            android:inputType="none|number"
-            android:hint="Press the barcode button"
+            android:inputType="none"
+            android:hint="Press the button"
             android:layout_marginRight="10dp"/>
 
         <ImageButton
-            android:layout_marginTop="16dp"
             android:id="@+id/barcode_button"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:src="@drawable/baseline_document_scanner_24"/>
     </LinearLayout>
 
@@ -138,7 +137,7 @@
             android:textSize="16sp"
             android:padding="8dp"
             android:gravity="right"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:hint="ex: 500"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
@@ -171,6 +170,7 @@
             android:padding="8dp"
             android:gravity="right"
             android:hint="ex: 50"
+            android:inputType="numberDecimal"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
 
@@ -202,7 +202,7 @@
             android:padding="8dp"
             android:gravity="right"
             android:hint="ex: 50"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
 
@@ -234,7 +234,7 @@
             android:padding="8dp"
             android:gravity="right"
             android:hint="ex: 50"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
 

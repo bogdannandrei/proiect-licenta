@@ -43,20 +43,10 @@ public class AddFoodToDb extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddFoodToDb.
-     */
     // TODO: Rename and change types and number of parameters
-    public static AddFoodToDb newInstance(String param1, String param2) {
+    public static AddFoodToDb newInstance() {
         AddFoodToDb fragment = new AddFoodToDb();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -112,10 +102,10 @@ public class AddFoodToDb extends Fragment {
                 String brandname_text = brandname_et.getText().toString().trim();
                 String foodname_text = foodname_et.getText().toString().trim();
                 String barcode_text = barcode.getText().toString().trim();
-                int calories = Integer.parseInt(calories_et.getText().toString().trim());
-                int carbs = Integer.parseInt(carb_et.getText().toString().trim());
-                int protein = Integer.parseInt(protein_et.getText().toString().trim());
-                int fats = Integer.parseInt(fats_et.getText().toString().trim());
+                double calories = Integer.parseInt(calories_et.getText().toString().trim());
+                double carbs = Double.parseDouble(carb_et.getText().toString().trim());
+                double protein = Double.parseDouble(protein_et.getText().toString().trim());
+                double fats = Double.parseDouble(fats_et.getText().toString().trim());
 
                 food.setBrandName(brandname_text);
                 food.setFoodName(foodname_text);

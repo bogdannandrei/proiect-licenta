@@ -4,10 +4,10 @@ public class Food {
     private String brandName;
     private String foodName;
     private String barcode;
-    private int calories;
-    private int carbs;
-    private int protein;
-    private int fats;
+    private double calories;
+    private double carbs;
+    private double protein;
+    private double fats;
 
     public Food() {
     }
@@ -24,19 +24,19 @@ public class Food {
         return barcode;
     }
 
-    public int getCalories() {
+    public double getCalories() {
         return calories;
     }
 
-    public int getCarbs() {
+    public double getCarbs() {
         return carbs;
     }
 
-    public int getProtein() {
+    public double getProtein() {
         return protein;
     }
 
-    public int getFats() {
+    public double getFats() {
         return fats;
     }
 
@@ -52,19 +52,19 @@ public class Food {
         this.barcode = barcode;
     }
 
-    public void setCalories(int calories) {
+    public void setCalories(double calories) {
         this.calories = calories;
     }
 
-    public void setCarbs(int carbs) {
+    public void setCarbs(double carbs) {
         this.carbs = carbs;
     }
 
-    public void setProtein(int protein) {
+    public void setProtein(double protein) {
         this.protein = protein;
     }
 
-    public void setFats(int fats) {
+    public void setFats(double fats) {
         this.fats = fats;
     }
 }

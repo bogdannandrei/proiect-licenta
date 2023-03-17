@@ -17,6 +17,10 @@
         android:theme="@style/Theme.ProiectLicenta"
         tools:targetApi="31">
         <activity
+            android:name=".AddFoodToDb" />
+        <activity
+            android:name=".AddFoodToDiary" />
+        <activity
             android:name=".ScanCode_createFood"
             android:exported="false" />
         <activity

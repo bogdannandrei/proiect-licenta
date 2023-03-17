@@ -17,7 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView;
+    private static BottomNavigationView bottomNavigationView;
     private FloatingActionButton floatingActionButton;
     private String phone_number;
 
@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Add your action here
-                replaceFragment(AddFoodToDb.newInstance());
+                Intent intent = new Intent(MainActivity.this,AddFoodToDb.class);
+                startActivity(intent);
             }
         });
 

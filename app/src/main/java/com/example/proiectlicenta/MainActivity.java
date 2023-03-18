@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Add your action here
-                Intent intent = new Intent(MainActivity.this,AddFoodToDb.class);
+                Intent intent = new Intent(MainActivity.this,AddFoodToDiary.class);
                 startActivity(intent);
             }
         });

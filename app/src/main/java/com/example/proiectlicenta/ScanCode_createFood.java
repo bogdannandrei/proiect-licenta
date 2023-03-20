@@ -25,6 +25,7 @@ public class ScanCode_createFood extends AppCompatActivity implements ZXingScann
     @Override
     public void handleResult(Result result) {
         AddFoodToDb.barcode.setText(result.getText());
+        finish();
     }
 
     @Override

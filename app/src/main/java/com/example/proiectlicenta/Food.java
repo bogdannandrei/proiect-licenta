@@ -1,6 +1,8 @@
 package com.example.proiectlicenta;
 
 public class Food {
+
+    private int foodID;
     private String brandName;
     private String foodName;
     private String barcode;
@@ -10,6 +12,10 @@ public class Food {
     private double fats;
 
     public Food() {
+    }
+
+    public int getFoodID() {
+        return foodID;
     }
 
     public String getBrandName() {
@@ -38,6 +44,10 @@ public class Food {
 
     public double getFats() {
         return fats;
+    }
+
+    public void setFoodID(int foodID) {
+        this.foodID = foodID;
     }
 
     public void setBrandName(String brandName) {

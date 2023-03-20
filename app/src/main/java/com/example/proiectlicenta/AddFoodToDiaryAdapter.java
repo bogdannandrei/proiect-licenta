@@ -15,10 +15,13 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
 
     Context context;
     ArrayList<Food> list;
+    ArrayList<Food> filteredList;
+
 
     public AddFoodToDiaryAdapter(Context context, ArrayList<Food> list) {
         this.context = context;
         this.list = list;
+        this.filteredList = new ArrayList<>(list);
     }
 
     @NonNull
@@ -31,7 +34,7 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Food food = list.get(position);
+        Food food = filteredList.get(position);
         holder.foodName.setText(food.getFoodName());
         holder.calories.setText(food.getCalories() + " cal");
         holder.servingSize.setText("100 gram");
@@ -40,7 +43,23 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return filteredList.size();
+    }
+
+    public void filter(String text) {
+        filteredList.clear();
+        if (text.isEmpty()) {
+            filteredList.addAll(list);
+        } else {
+            text = text.toLowerCase();
+            for (Food food : list) {
+                if (food.getFoodName().toLowerCase().contains(text) ||
+                        food.getBrandName().toLowerCase().contains(text)) {
+                    filteredList.add(food);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

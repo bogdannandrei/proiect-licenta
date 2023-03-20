@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context=".LogFood">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/foodName"
+        android:text="Food name"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/brandName"
+        android:text="Brand name"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/lin_layout_lightgrey_border"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Serving size"
+                android:textSize="14sp"
+                android:layout_marginLeft="10dp"/>
+
+            <!-- Right EditText -->
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/servingsizeTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:gravity="right"
+                android:inputType="text"
+                android:hint="100 gram"
+                android:layout_marginRight="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Number of servings"
+                android:textSize="14sp"
+                android:layout_marginLeft="10dp"/>
+
+            <!-- Right EditText -->
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/nrOfServingsEt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:gravity="right"
+                android:inputType="numberDecimal"
+                android:hint="ex: 1"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Meal type"
+                android:textSize="14sp"
+                android:layout_marginLeft="10dp"/>
+
+            <!-- Right EditText -->
+            <Spinner
+                android:layout_marginTop="10dp"
+                android:id="@+id/mealTypeSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:gravity="right"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nutritional values"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Calories"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"/>
+
+                <!-- Right EditText -->
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/caloriesEt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textSize="16sp"
+                    android:padding="8dp"
+                    android:text="5 cal"
+                    android:textStyle="bold"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Carbohydrates"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"/>
+
+                <!-- Right EditText -->
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/carbsEt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textSize="16sp"
+                    android:padding="8dp"
+                    android:textStyle="bold"
+                    android:gravity="right"
+                    android:text="5 g"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Protein"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"/>
+
+                <!-- Right EditText -->
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/proteinEt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textSize="16sp"
+                    android:padding="8dp"
+                    android:text="5 g"
+                    android:textStyle="bold"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fats"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"/>
+
+                <!-- Right EditText -->
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/fatsEt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textSize="16sp"
+                    android:padding="8dp"
+                    android:gravity="right"
+                    android:text="5 g"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#7E7E7E"
+                android:text="Log food" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

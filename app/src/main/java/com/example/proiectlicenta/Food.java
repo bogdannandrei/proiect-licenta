@@ -1,6 +1,8 @@
 package com.example.proiectlicenta;
 
-public class Food {
+import java.io.Serializable;
+
+public class Food implements Serializable {
 
     private int foodID;
     private String brandName;

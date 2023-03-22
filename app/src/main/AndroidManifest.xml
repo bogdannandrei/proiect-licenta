@@ -26,6 +26,9 @@
             android:name=".ScanCode_createFood"
             android:exported="false" />
         <activity
+            android:name=".ScanCode_addFood"
+            android:exported="false" />
+        <activity
             android:name=".Register"
             android:exported="false" />
         <activity

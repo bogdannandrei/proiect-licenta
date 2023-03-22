@@ -14,7 +14,9 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +35,7 @@ public class AddFoodToDiary extends AppCompatActivity {
     ArrayList<Food> list;
     TextView addFoodToDB;
     EditText foodFilter;
+    ImageButton barcodeBtn;
     public AddFoodToDiary() {
         // Required empty public constructor
     }
@@ -42,6 +45,7 @@ public class AddFoodToDiary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food_to_diary);
 
+        barcodeBtn = findViewById(R.id.barcode_button);
         foodFilter = findViewById(R.id.food_name);
         addFoodToDB = findViewById(R.id.addFoodToDB);
         recyclerView = findViewById(R.id.recyclerView);
@@ -91,6 +95,14 @@ public class AddFoodToDiary extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        barcodeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent scanCode = new Intent(AddFoodToDiary.this, ScanCode_addFood.class);
+                startActivity(scanCode);
             }
         });
 

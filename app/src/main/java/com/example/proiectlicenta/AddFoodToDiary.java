@@ -106,5 +106,13 @@ public class AddFoodToDiary extends AppCompatActivity {
             }
         });
 
+        adapter.setOnItemClickListener(new AddFoodToDiaryAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Food food) {
+                Intent i = new Intent(AddFoodToDiary.this, LogFood.class);
+                i.putExtra("Food", food);
+                startActivity(i);
+            }
+        });
     }
 }

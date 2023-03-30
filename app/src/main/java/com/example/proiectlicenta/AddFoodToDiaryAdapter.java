@@ -17,6 +17,11 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
     ArrayList<Food> list;
     ArrayList<Food> filteredList;
 
+    public interface OnItemClickListener {
+        void onItemClick(Food food);
+    }
+
+    private OnItemClickListener mListener;
 
     public AddFoodToDiaryAdapter(Context context, ArrayList<Food> list) {
         this.context = context;
@@ -24,11 +29,15 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
         this.filteredList = new ArrayList<>(list);
     }
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.food,parent,false);
-        return new ViewHolder(v);
+        return new ViewHolder(v, mListener);
     }
 
     @Override
@@ -62,20 +71,33 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
         notifyDataSetChanged();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView foodName;
         TextView calories;
         TextView servingSize;
         TextView brandName;
 
-        public ViewHolder(@NonNull View itemView) {
+        private OnItemClickListener mListener;
+
+        public ViewHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
 
             foodName = itemView.findViewById(R.id.foodNameTv);
             calories = itemView.findViewById(R.id.caloriesTv);
             servingSize = itemView.findViewById(R.id.servingSizeTv);
             brandName = itemView.findViewById(R.id.brandNameTv);
+
+            mListener = listener;
+
+            itemView.setOnClickListener(this);
+        }
+
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION && mListener != null) {
+                mListener.onItemClick(filteredList.get(position));
+            }
         }
     }
 }

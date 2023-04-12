@@ -89,7 +89,7 @@ public class AddFoodToDb extends AppCompatActivity {
                 food.setFats(fats);
                 databaseReference.child(String.valueOf(maxID+1)).setValue(food);
                 Toast.makeText(AddFoodToDb.this, "Food added to database succesfully.", Toast.LENGTH_SHORT).show();
-
+                finish();
             }
         });
     }

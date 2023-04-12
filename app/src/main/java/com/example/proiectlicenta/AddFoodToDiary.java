@@ -51,7 +51,7 @@ public class AddFoodToDiary extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        String phoneNumber = getIntent().getStringExtra("phone");
         list = new ArrayList<>();
         adapter = new AddFoodToDiaryAdapter(this,list);
         recyclerView.setAdapter(adapter);
@@ -110,6 +110,7 @@ public class AddFoodToDiary extends AppCompatActivity {
             @Override
             public void onItemClick(Food food) {
                 Intent i = new Intent(AddFoodToDiary.this, LogFood.class);
+                i.putExtra("phone", phoneNumber);
                 i.putExtra("Food", food);
                 startActivity(i);
             }

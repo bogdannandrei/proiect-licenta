@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Add your action here
                 Intent intent = new Intent(MainActivity.this,AddFoodToDiary.class);
+                intent.putExtras(b);
                 startActivity(intent);
             }
         });

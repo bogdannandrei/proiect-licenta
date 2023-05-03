@@ -4,59 +4,52 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
-    app:cardCornerRadius="8dp"
-    android:layout_margin="5dp"
-    android:orientation="horizontal"
-    android:backgroundTint="#E3E3E3">
+    android:layout_margin="0dp"
+    android:backgroundTint="#D3D3D3">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
             android:id="@+id/foodNameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:text="Fulgi de porumb" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/caloriesTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="#9F9F9F"
-            android:layout_marginRight="8dp"
-            android:text="220 cal," />
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:text="220"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
 
         <TextView
             android:id="@+id/servingSizeTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textColor="#9F9F9F"
-            android:layout_marginRight="8dp"
-            android:text="100 gram," />
+            android:text="100 gram, "
+            android:layout_below="@id/foodNameTv" />
 
         <TextView
             android:id="@+id/brandNameTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textColor="#9F9F9F"
-            android:layout_marginRight="8dp"
-            android:text="Simplu" />
+            android:text="Simplu"
+            android:layout_toRightOf="@id/servingSizeTv"
+            android:layout_below="@id/foodNameTv" />
 
-    </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

@@ -15,7 +15,7 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
 
     Context context;
     ArrayList<Food> list;
-    ArrayList<Food> filteredList;
+    ArrayList<Food> filteredListBreakfast;
 
     public interface OnItemClickListener {
         void onItemClick(Food food);
@@ -26,7 +26,7 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
     public AddFoodToDiaryAdapter(Context context, ArrayList<Food> list) {
         this.context = context;
         this.list = list;
-        this.filteredList = new ArrayList<>(list);
+        this.filteredListBreakfast = new ArrayList<>(list);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -43,7 +43,7 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Food food = filteredList.get(position);
+        Food food = filteredListBreakfast.get(position);
         holder.foodName.setText(food.getFoodName());
         holder.calories.setText(food.getCalories() + " cal");
         holder.servingSize.setText("100 gram");
@@ -52,19 +52,19 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
 
     @Override
     public int getItemCount() {
-        return filteredList.size();
+        return filteredListBreakfast.size();
     }
 
     public void filter(String text) {
-        filteredList.clear();
+        filteredListBreakfast.clear();
         if (text.isEmpty()) {
-            filteredList.addAll(list);
+            filteredListBreakfast.addAll(list);
         } else {
             text = text.toLowerCase();
             for (Food food : list) {
                 if (food.getFoodName().toLowerCase().contains(text) ||
                         food.getBrandName().toLowerCase().contains(text)) {
-                    filteredList.add(food);
+                    filteredListBreakfast.add(food);
                 }
             }
         }
@@ -96,7 +96,7 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION && mListener != null) {
-                mListener.onItemClick(filteredList.get(position));
+                mListener.onItemClick(filteredListBreakfast.get(position));
             }
         }
     }

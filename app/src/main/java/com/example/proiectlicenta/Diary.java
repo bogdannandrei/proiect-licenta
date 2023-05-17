@@ -31,13 +31,20 @@ public class Diary extends Fragment {
     private TextView dateTextView;
     private Calendar calendar;
     private FoodLogAdapter breakfastAdapter;
+    private FoodLogAdapter lunchAdapter;
+    private FoodLogAdapter dinnerAdapter;
+    private FoodLogAdapter snacksAdapter;
+
     private RecyclerView breakfastRecyclerView;
     private RecyclerView lunchRecyclerView;
     private RecyclerView dinnerRecyclerView;
     private RecyclerView snacksRecyclerView;
 
-    ArrayList<FoodLog> breakfastList = new ArrayList<FoodLog>();
-    ArrayList<FoodLog> filteredList = new ArrayList<FoodLog>();
+    ArrayList<FoodLog> foodList = new ArrayList<FoodLog>();
+    ArrayList<FoodLog> filteredListBreakfast = new ArrayList<FoodLog>();
+    ArrayList<FoodLog> filteredListLunch = new ArrayList<FoodLog>();
+    ArrayList<FoodLog> filteredListDinner = new ArrayList<FoodLog>();
+    ArrayList<FoodLog> filteredListSnacks = new ArrayList<FoodLog>();
     String phoneNumber;
 
 
@@ -80,29 +87,24 @@ public class Diary extends Fragment {
         System.out.println(calendar.get(Calendar.MONTH));
         System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
 
-        breakfastAdapter = new FoodLogAdapter(getContext(), filteredList, calendar);
+        /* breakfastAdapter = new FoodLogAdapter(getContext(), filteredListBreakfast, calendar);
         breakfastRecyclerView.setAdapter(breakfastAdapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this.getContext());
-        breakfastRecyclerView.setLayoutManager(layoutManager);
+        LinearLayoutManager layoutManagerBreakfast = new LinearLayoutManager(this.getContext());
+        breakfastRecyclerView.setLayoutManager(layoutManagerBreakfast);
+
+        lunchAdapter = new FoodLogAdapter(getContext(), filteredListLunch, calendar);
+        lunchRecyclerView.setAdapter(lunchAdapter);
+        LinearLayoutManager layoutManagerLunch = new LinearLayoutManager(this.getContext());
+        lunchRecyclerView.setLayoutManager(layoutManagerLunch); */
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     FoodLog fl = dataSnapshot.getValue(FoodLog.class);
-                    breakfastList.add(fl);
+                    foodList.add(fl);
                 }
-                filteredList = filterByDateAndMealType(breakfastList, calendar, "breakfast");
-                breakfastAdapter = new FoodLogAdapter(getContext(), filteredList, calendar);
-                breakfastRecyclerView.setAdapter(breakfastAdapter);
-                breakfastAdapter.notifyDataSetChanged();
-                for(FoodLog fl : breakfastList){
-                    System.out.println(fl.toString());
-                }
-                System.out.println("FL");
-                for(FoodLog fl : filteredList){
-                    System.out.println(fl.toString());
-                }
+                updateRecyclerView();
             }
 
             @Override
@@ -132,11 +134,30 @@ public class Diary extends Fragment {
     }
 
     private void updateRecyclerView() {
-        filteredList.clear();
-        filteredList = filterByDateAndMealType(breakfastList, calendar, "breakfast");
-        breakfastAdapter = new FoodLogAdapter(getContext(), filteredList, calendar);
+        filteredListBreakfast.clear();
+        filteredListLunch.clear();
+        filteredListDinner.clear();
+        filteredListSnacks.clear();
+
+        filteredListBreakfast = filterByDateAndMealType(foodList, calendar, "breakfast");
+        breakfastAdapter = new FoodLogAdapter(getContext(), filteredListBreakfast, calendar);
         breakfastRecyclerView.setAdapter(breakfastAdapter);
         breakfastAdapter.notifyDataSetChanged();
+
+        filteredListLunch = filterByDateAndMealType(foodList, calendar, "lunch");
+        lunchAdapter = new FoodLogAdapter(getContext(), filteredListLunch, calendar);
+        lunchRecyclerView.setAdapter(lunchAdapter);
+        lunchAdapter.notifyDataSetChanged();
+
+        filteredListDinner = filterByDateAndMealType(foodList, calendar, "dinner");
+        dinnerAdapter = new FoodLogAdapter(getContext(), filteredListDinner, calendar);
+        dinnerRecyclerView.setAdapter(dinnerAdapter);
+        dinnerAdapter.notifyDataSetChanged();
+
+        filteredListSnacks = filterByDateAndMealType(foodList, calendar, "snacks");
+        snacksAdapter = new FoodLogAdapter(getContext(), filteredListSnacks, calendar);
+        snacksRecyclerView.setAdapter(snacksAdapter);
+        snacksAdapter.notifyDataSetChanged();
     }
 
 

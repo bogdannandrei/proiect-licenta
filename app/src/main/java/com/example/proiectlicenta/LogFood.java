@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 public class LogFood extends AppCompatActivity {
@@ -41,6 +42,7 @@ public class LogFood extends AppCompatActivity {
     long maxID = 0;
     double nrOfServings;
     String selectedSpinnerValue;
+    DecimalFormat df = new DecimalFormat("#.##");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,10 +103,10 @@ public class LogFood extends AppCompatActivity {
                     fatsTv.setText("0 g");
                 }else{
                     nrOfServings = Double.parseDouble(charSequence.toString());
-                    caloriesTv.setText(String.valueOf(f.getCalories() * servingSize * nrOfServings) + " cal");
-                    carbsTv.setText(String.valueOf(f.getCarbs() * servingSize * nrOfServings) + " g");
-                    proteinTv.setText(String.valueOf(f.getProtein() * servingSize * nrOfServings) + " g");
-                    fatsTv.setText(String.valueOf(f.getFats() * servingSize * nrOfServings ) + " g");
+                    caloriesTv.setText(String.valueOf(df.format(f.getCalories() * servingSize * nrOfServings)) + " cal");
+                    carbsTv.setText(String.valueOf(df.format(f.getCarbs() * servingSize * nrOfServings)) + " g");
+                    proteinTv.setText(String.valueOf(df.format(f.getProtein() * servingSize * nrOfServings)) + " g");
+                    fatsTv.setText(String.valueOf(df.format(f.getFats() * servingSize * nrOfServings)) + " g");
                 }
             }
 
@@ -150,10 +152,12 @@ public class LogFood extends AppCompatActivity {
                 fl.setMonth(date.getMonthValue());
                 fl.setDay(date.getDayOfMonth());
                 fl.setMealType(selectedSpinnerValue);
-                fl.setCalories(f.getCalories() * servingSize * nrOfServings);
-                fl.setCarbs(f.getCarbs() * servingSize * nrOfServings);
-                fl.setProtein(f.getProtein() * servingSize * nrOfServings);
-                fl.setFats(f.getFats() * servingSize * nrOfServings);
+                fl.setCalories(Double.parseDouble(df.format(f.getCalories() * servingSize * nrOfServings)));
+                fl.setCarbs(Double.parseDouble(df.format(f.getCarbs() * servingSize * nrOfServings)));
+                fl.setProtein(Double.parseDouble(df.format(f.getProtein() * servingSize * nrOfServings)));
+                fl.setFats(Double.parseDouble(df.format(f.getFats() * servingSize * nrOfServings)));
+                fl.setServingSize("100 gram");
+                fl.setBrandName(f.getBrandName().toString());
                 databaseReference.child(String.valueOf(maxID+1)).setValue(fl);
                 Toast.makeText(LogFood.this, "Food added to diary succesfully.", Toast.LENGTH_SHORT).show();
                 finish();

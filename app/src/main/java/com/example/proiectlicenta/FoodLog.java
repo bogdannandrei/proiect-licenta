@@ -13,6 +13,8 @@ public class FoodLog {
     private int month;
     private int day;
 
+    private String servingSize;
+    private String brandName;
     public FoodLog(){
 
     }
@@ -86,5 +88,38 @@ public class FoodLog {
 
     public void setMealType(String mealType) {
         this.mealType = mealType;
+    }
+
+    public String getServingSize() {
+        return servingSize;
+    }
+
+    public String getBrandName() {
+        return brandName;
+    }
+
+    public void setServingSize(String servingSize) {
+        this.servingSize = servingSize;
+    }
+
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
+    }
+
+    @Override
+    public String toString() {
+        return "FoodLog{" +
+                "foodName='" + foodName + '\'' +
+                ", mealType='" + mealType + '\'' +
+                ", calories=" + calories +
+                ", fats=" + fats +
+                ", protein=" + protein +
+                ", carbs=" + carbs +
+                ", year=" + year +
+                ", month=" + month +
+                ", day=" + day +
+                ", servingSize='" + servingSize + '\'' +
+                ", brandName='" + brandName + '\'' +
+                '}';
     }
 }

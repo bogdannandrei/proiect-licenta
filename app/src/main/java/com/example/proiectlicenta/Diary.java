@@ -30,6 +30,11 @@ public class Diary extends Fragment {
     private ImageView nextDayButton;
     private TextView dateTextView;
     private Calendar calendar;
+    private TextView breakfastCalories;
+    private TextView lunchCalories;
+    private TextView dinnerCalories;
+    private TextView snacksCalories;
+
     private FoodLogAdapter breakfastAdapter;
     private FoodLogAdapter lunchAdapter;
     private FoodLogAdapter dinnerAdapter;
@@ -46,6 +51,10 @@ public class Diary extends Fragment {
     ArrayList<FoodLog> filteredListDinner = new ArrayList<FoodLog>();
     ArrayList<FoodLog> filteredListSnacks = new ArrayList<FoodLog>();
     String phoneNumber;
+    int breakfastSum = 0;
+    int lunchSum = 0;
+    int dinnerSum = 0;
+    int snacksSum = 0;
 
 
     public Diary() {
@@ -80,22 +89,16 @@ public class Diary extends Fragment {
         prevDayButton = view.findViewById(R.id.prev_day_button);
         nextDayButton = view.findViewById(R.id.next_day_button);
         dateTextView = view.findViewById(R.id.date_text_view);
+        breakfastCalories = view.findViewById(R.id.breakfast_calories);
+        lunchCalories = view.findViewById(R.id.lunch_calories);
+        dinnerCalories = view.findViewById(R.id.dinner_calories);
+        snacksCalories = view.findViewById(R.id.snacks_calories);
 
         calendar = Calendar.getInstance();
         updateDateText();
         System.out.println(calendar.get(Calendar.YEAR));
         System.out.println(calendar.get(Calendar.MONTH));
         System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
-
-        /* breakfastAdapter = new FoodLogAdapter(getContext(), filteredListBreakfast, calendar);
-        breakfastRecyclerView.setAdapter(breakfastAdapter);
-        LinearLayoutManager layoutManagerBreakfast = new LinearLayoutManager(this.getContext());
-        breakfastRecyclerView.setLayoutManager(layoutManagerBreakfast);
-
-        lunchAdapter = new FoodLogAdapter(getContext(), filteredListLunch, calendar);
-        lunchRecyclerView.setAdapter(lunchAdapter);
-        LinearLayoutManager layoutManagerLunch = new LinearLayoutManager(this.getContext());
-        lunchRecyclerView.setLayoutManager(layoutManagerLunch); */
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -138,24 +141,44 @@ public class Diary extends Fragment {
         filteredListLunch.clear();
         filteredListDinner.clear();
         filteredListSnacks.clear();
+        breakfastSum = 0;
+        lunchSum = 0;
+        dinnerSum = 0;
+        snacksSum = 0;
 
         filteredListBreakfast = filterByDateAndMealType(foodList, calendar, "breakfast");
         breakfastAdapter = new FoodLogAdapter(getContext(), filteredListBreakfast, calendar);
+        for(FoodLog fl : filteredListBreakfast){
+            breakfastSum += fl.getCalories();
+        }
+        breakfastCalories.setText(breakfastSum + " kcal");
         breakfastRecyclerView.setAdapter(breakfastAdapter);
         breakfastAdapter.notifyDataSetChanged();
 
         filteredListLunch = filterByDateAndMealType(foodList, calendar, "lunch");
         lunchAdapter = new FoodLogAdapter(getContext(), filteredListLunch, calendar);
+        for(FoodLog fl : filteredListLunch){
+            lunchSum += fl.getCalories();
+        }
+        lunchCalories.setText(lunchSum + " kcal");
         lunchRecyclerView.setAdapter(lunchAdapter);
         lunchAdapter.notifyDataSetChanged();
 
         filteredListDinner = filterByDateAndMealType(foodList, calendar, "dinner");
         dinnerAdapter = new FoodLogAdapter(getContext(), filteredListDinner, calendar);
+        for(FoodLog fl : filteredListDinner){
+            dinnerSum += fl.getCalories();
+        }
+        dinnerCalories.setText(dinnerSum + " kcal");
         dinnerRecyclerView.setAdapter(dinnerAdapter);
         dinnerAdapter.notifyDataSetChanged();
 
         filteredListSnacks = filterByDateAndMealType(foodList, calendar, "snacks");
         snacksAdapter = new FoodLogAdapter(getContext(), filteredListSnacks, calendar);
+        for(FoodLog fl : filteredListSnacks){
+            snacksSum += fl.getCalories();
+        }
+        snacksCalories.setText(snacksSum + " kcal");
         snacksRecyclerView.setAdapter(snacksAdapter);
         snacksAdapter.notifyDataSetChanged();
     }

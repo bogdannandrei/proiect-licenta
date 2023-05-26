@@ -75,7 +75,7 @@ public class AddFoodToDb extends AppCompatActivity {
                 String brandname_text = brandname_et.getText().toString().trim();
                 String foodname_text = foodname_et.getText().toString().trim();
                 String barcode_text = barcode.getText().toString().trim();
-                double calories = Integer.parseInt(calories_et.getText().toString().trim());
+                double calories = Double.parseDouble(calories_et.getText().toString().trim());
                 double carbs = Double.parseDouble(carb_et.getText().toString().trim());
                 double protein = Double.parseDouble(protein_et.getText().toString().trim());
                 double fats = Double.parseDouble(fats_et.getText().toString().trim());

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -31,12 +33,26 @@ import java.util.Locale;
  */
 public class Dashboard extends Fragment {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app").getReference();
+    DatabaseReference dbrFood;
     String full_name;
-    int total_calories;
-    int daily_carb;
-    int daily_protein;
-    int daily_fats;
-    int remainingCalories;
+    double total_calories;
+    double daily_carb;
+    double daily_protein;
+    double daily_fats;
+    double remainingCalories;
+    double protein = 0;
+    double carbs = 0;
+    double fats = 0;
+    double foodCalories = 0;
+    double exerciseCalories = 0;
+    int calsPercentage = 0;
+    int proteinPercentage = 0;
+    int carbPercentage = 0;
+    int fatsPercentage = 0;
+
+    ArrayList<FoodLog> foodList = new ArrayList<FoodLog>();
+    ArrayList<FoodLog> todayFoodList = new ArrayList<FoodLog>();
+    Calendar calendar = Calendar.getInstance();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,7 +89,8 @@ public class Dashboard extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-
+        String phoneNumber = getArguments().getString("phone");
+        dbrFood = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app").getReference(phoneNumber + "_food");
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         TextView hello_tv = view.findViewById(R.id.tv);
         TextView bottomTv = view.findViewById(R.id.tv2);
@@ -84,15 +101,40 @@ public class Dashboard extends Fragment {
         TextView remCalsTv = view.findViewById(R.id.cal_progress_bar_text);
         TextView foodCals = view.findViewById(R.id.foodCalories);
         TextView exerciseCals = view.findViewById(R.id.exerciseCalories);
+        ProgressBar calsPb = view.findViewById(R.id.progress_bar_calories);
+        ProgressBar carbPb = view.findViewById(R.id.carb_horizontal_progressbar);
+        ProgressBar proteinPb = view.findViewById(R.id.protein_horizontal_progressbar);
+        ProgressBar fatsPb = view.findViewById(R.id.fats_horizontal_progressbar);
         Calendar calendar = Calendar.getInstance();
         int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-        String phoneNumber = getArguments().getString("phone");
-        int calories = 0;
-        int protein = 0;
-        int carbs = 0;
-        int fats = 0;
-        int foodCalories = 0;
-        int exerciseCalories = 0;
+
+        dbrFood.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    FoodLog fl = dataSnapshot.getValue(FoodLog.class);
+                    foodList.add(fl);
+                }
+                for (FoodLog foodLog : foodList) {
+                    if (foodLog.getYear() == calendar.get(Calendar.YEAR) &&
+                            foodLog.getMonth() == (calendar.get(Calendar.MONTH)+1) &&
+                            foodLog.getDay() == calendar.get(Calendar.DAY_OF_MONTH)) {
+                        todayFoodList.add(foodLog);
+                    }
+                }
+                for(FoodLog fl : todayFoodList){
+                    foodCalories += fl.getCalories();
+                    protein += fl.getProtein();
+                    carbs += fl.getCarbs();
+                    fats += fl.getFats();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle onCancelled if needed
+            }
+        });
 
 
          databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -126,6 +168,16 @@ public class Dashboard extends Fragment {
                     remCalsTv.setText(String.valueOf(remainingCalories));
                     foodCals.setText(String.valueOf(foodCalories));
                     exerciseCals.setText(String.valueOf(exerciseCalories));
+
+                    calsPercentage = Long.valueOf(Math.round((foodCalories / total_calories) * 100)).intValue();
+                    carbPercentage = Long.valueOf(Math.round((carbs / daily_carb) * 100)).intValue();
+                    proteinPercentage = Long.valueOf(Math.round((protein / daily_protein) * 100)).intValue();
+                    fatsPercentage = Long.valueOf(Math.round((fats / daily_fats) * 100)).intValue();
+
+                    calsPb.setProgress(calsPercentage);
+                    proteinPb.setProgress(proteinPercentage);
+                    carbPb.setProgress(carbPercentage);
+                    fatsPb.setProgress(fatsPercentage);
             }
 
             @Override

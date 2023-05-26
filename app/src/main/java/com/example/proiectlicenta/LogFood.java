@@ -152,10 +152,10 @@ public class LogFood extends AppCompatActivity {
                 fl.setMonth(date.getMonthValue());
                 fl.setDay(date.getDayOfMonth());
                 fl.setMealType(selectedSpinnerValue);
-                fl.setCalories(Double.parseDouble(df.format(f.getCalories() * servingSize * nrOfServings)));
-                fl.setCarbs(Double.parseDouble(df.format(f.getCarbs() * servingSize * nrOfServings)));
-                fl.setProtein(Double.parseDouble(df.format(f.getProtein() * servingSize * nrOfServings)));
-                fl.setFats(Double.parseDouble(df.format(f.getFats() * servingSize * nrOfServings)));
+                fl.setCalories(Double.parseDouble(df.format(f.getCalories() * servingSize * nrOfServings).replace(",",".")));
+                fl.setCarbs(Double.parseDouble(df.format(f.getCarbs() * servingSize * nrOfServings).replace(",",".")));
+                fl.setProtein(Double.parseDouble(df.format(f.getProtein() * servingSize * nrOfServings).replace(",",".")));
+                fl.setFats(Double.parseDouble(df.format(f.getFats() * servingSize * nrOfServings).replace(",",".")));
                 fl.setServingSize("100 gram");
                 fl.setBrandName(f.getBrandName().toString());
                 databaseReference.child(String.valueOf(maxID+1)).setValue(fl);

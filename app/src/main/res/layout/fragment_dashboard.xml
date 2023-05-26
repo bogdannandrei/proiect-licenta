@@ -50,42 +50,48 @@
             <RelativeLayout
                 android:layout_width="15dp"
                 android:layout_height="175dp"
-                android:layout_weight="1"
-                >
+                android:layout_weight="1">
 
                 <ProgressBar
-                    android:id="@+id/progress_bar"
+                    android:id="@+id/progress_bar_calories"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/circle_shape"
                     android:indeterminate="false"
                     android:progressDrawable="@drawable/circular_progress_bar"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/cal_progress_bar_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="----"
-                    android:textColor="#000000"
-                    android:textSize="20dp"
-                    android:textStyle="bold"/>
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/bottom_cal_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cal_progress_bar_text"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="15dp"
-                    android:text="Remaining"
-                    android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/cal_progress_bar_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="----"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/bottom_cal_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Remaining"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
             </RelativeLayout>
+
+
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -100,8 +106,7 @@
             android:text="Total calories:"
             android:id="@+id/totalCaloriesTv"
             android:textColor="#333333"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -109,17 +114,15 @@
                     android:id="@+id/totalCalories"
                     android:text=" "
                     android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="15dp"/>
+                    android:textSize="14sp"
+                    android:layout_marginBottom="10dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Food calories:"
             android:textColor="#333333"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -127,17 +130,15 @@
                     android:id="@+id/foodCalories"
                     android:text=" "
                     android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="15dp"/>
+                    android:textSize="14sp"
+                    android:layout_marginBottom="10dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Exercise calories:"
                     android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -145,9 +146,8 @@
                     android:id="@+id/exerciseCalories"
                     android:text=" "
                     android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="15dp"/>
+                    android:textSize="14sp"
+                    android:layout_marginBottom="10dp"/>
             </LinearLayout>
         </LinearLayout>
 

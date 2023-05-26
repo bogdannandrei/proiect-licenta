@@ -19,11 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AddFoodToDb#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AddFoodToDb extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app").getReference().child("food");
     public static EditText barcode;
@@ -38,6 +33,7 @@ public class AddFoodToDb extends AppCompatActivity {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food_to_db);
+        String barcodeText = getIntent().getStringExtra("barcode");
         EditText brandname_et = (EditText) findViewById(R.id.brandname_et);
         EditText foodname_et = (EditText) findViewById(R.id.foodname_et);
         barcode = (EditText) findViewById(R.id.barcode_et);
@@ -62,6 +58,12 @@ public class AddFoodToDb extends AppCompatActivity {
             }
         });
 
+        if(barcodeText!=null){
+            barcode.setText(barcodeText);
+        }
+        else{
+            barcode.setText(null);
+        }
 
         barcode_btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -77,7 +77,7 @@ public class ScanCode_addFood extends AppCompatActivity implements ZXingScannerV
                     public void onClick(DialogInterface dialog, int which) {
                         // Do nothing but close the dialog
                         Intent intent = new Intent(ScanCode_addFood.this, AddFoodToDb.class);
-                        AddFoodToDb.barcode.setText(result.getText());
+                        intent.putExtra("barcode",result.getText());
                         startActivity(intent);
                         dialog.dismiss();
                         finish();

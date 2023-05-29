@@ -30,11 +30,13 @@ public class ScanCode_addFood extends AppCompatActivity implements ZXingScannerV
     ZXingScannerView scannerView;
     ArrayList<Food> list;
     Bundle b = new Bundle();
+    String phoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         scannerView = new ZXingScannerView(this);
+        phoneNumber = getIntent().getStringExtra("phone");
         setContentView(scannerView);
         list = new ArrayList<>();
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -78,6 +80,7 @@ public class ScanCode_addFood extends AppCompatActivity implements ZXingScannerV
                         // Do nothing but close the dialog
                         Intent intent = new Intent(ScanCode_addFood.this, AddFoodToDb.class);
                         intent.putExtra("barcode",result.getText());
+                        intent.putExtra("phone",phoneNumber);
                         startActivity(intent);
                         dialog.dismiss();
                         finish();

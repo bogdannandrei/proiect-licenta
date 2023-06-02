@@ -18,6 +18,9 @@
         android:theme="@style/Theme.ProiectLicenta"
         tools:targetApi="31">
         <activity
+            android:name=".AdminPanel"
+            android:exported="false" />
+        <activity
             android:name=".LogFood"
             android:exported="false" />
         <activity android:name=".AddFoodToDb" />

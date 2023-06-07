@@ -185,6 +185,7 @@ public class final_reg extends Fragment {
                                 databaseReference.child("users").child(phoneTxt).child("daily_carb").setValue(dailyCarb);
                                 databaseReference.child("users").child(phoneTxt).child("daily_protein").setValue(dailyProtein);
                                 databaseReference.child("users").child(phoneTxt).child("daily_fats").setValue(dailyFats);
+                                databaseReference.child("users").child(phoneTxt).child("daily_steps").setValue(10000);
                             }
                         }
 

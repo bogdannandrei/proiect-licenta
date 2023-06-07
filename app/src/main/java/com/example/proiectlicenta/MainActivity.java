@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -18,7 +19,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
 
     private static BottomNavigationView bottomNavigationView;
-    private FloatingActionButton floatingActionButton;
+    private FloatingActionButton fab;
+    private FloatingActionButton fabFood;
+    private FloatingActionButton fabExercise;
+    private View fabButtons;
+
     private String phone_number;
 
     private void replaceFragment(Fragment fragment) {
@@ -36,9 +41,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        View overlayView = findViewById(R.id.overlay_view);
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        floatingActionButton = findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
+        fabFood = findViewById(R.id.fab_food);
+        fabExercise = findViewById(R.id.fab_exercise);
+        fabButtons = findViewById(R.id.fab_layout);
 
         Bundle b = new Bundle();
         phone_number = getIntent().getStringExtra("phone");
@@ -69,7 +78,25 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Handle floating action button click
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (fabButtons.getVisibility() == View.GONE) {
+                    fabButtons.setVisibility(View.VISIBLE);
+                }
+                else{
+                    fabButtons.setVisibility(View.GONE);
+                }
+                if (overlayView.getVisibility() == View.VISIBLE) {
+                    overlayView.setVisibility(View.INVISIBLE);
+                } else {
+                    overlayView.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        
+        fabFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Add your action here

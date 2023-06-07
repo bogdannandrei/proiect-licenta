@@ -49,6 +49,7 @@ public class Dashboard extends Fragment {
     int proteinPercentage = 0;
     int carbPercentage = 0;
     int fatsPercentage = 0;
+    int daily_steps = 0;
 
     ArrayList<FoodLog> foodList = new ArrayList<FoodLog>();
     ArrayList<FoodLog> todayFoodList = new ArrayList<FoodLog>();
@@ -145,6 +146,7 @@ public class Dashboard extends Fragment {
                     daily_protein =  snapshot.child(phoneNumber).child("daily_protein").getValue(int.class);
                     daily_carb =  snapshot.child(phoneNumber).child("daily_carb").getValue(int.class);
                     daily_fats =  snapshot.child(phoneNumber).child("daily_fats").getValue(int.class);
+                    daily_steps = snapshot.child(phoneNumber).child("daily_steps").getValue(int.class);
 
                     String[] name_array = full_name.split(" ");
                     String first_name = name_array[0];

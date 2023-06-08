@@ -15,7 +15,7 @@ public class AddExerciseToDiaryAdapter extends RecyclerView.Adapter<AddExerciseT
 
     Context context;
     ArrayList<ExerciseClass> list;
-    ArrayList<ExerciseClass> filteredListBreakfast;
+    ArrayList<ExerciseClass> filteredList;
 
     public interface OnItemClickListener {
         void onItemClick(ExerciseClass exercise);
@@ -26,7 +26,7 @@ public class AddExerciseToDiaryAdapter extends RecyclerView.Adapter<AddExerciseT
     public AddExerciseToDiaryAdapter(Context context, ArrayList<ExerciseClass> list) {
         this.context = context;
         this.list = list;
-        this.filteredListBreakfast = new ArrayList<>(list);
+        this.filteredList = new ArrayList<>(list);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -36,30 +36,32 @@ public class AddExerciseToDiaryAdapter extends RecyclerView.Adapter<AddExerciseT
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.food,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.exercise_class,parent,false);
         return new ViewHolder(v, mListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        ExerciseClass ex = filteredListBreakfast.get(position);
+        ExerciseClass ex = filteredList.get(position);
+        holder.exerciseName.setText(ex.getName());
+        holder.caloriesPerHour.setText("Calories per Hour: " + ex.getCaloriesPerHour());
     }
 
     @Override
     public int getItemCount() {
-        return filteredListBreakfast.size();
+        return filteredList.size();
     }
 
     public void filter(String text) {
-        filteredListBreakfast.clear();
+        filteredList.clear();
         if (text.isEmpty()) {
-            filteredListBreakfast.addAll(list);
+            filteredList.addAll(list);
         } else {
             text = text.toLowerCase();
             for (ExerciseClass ex : list) {
                 if (ex.getName().toLowerCase().contains(text)) {
-                    filteredListBreakfast.add(ex);
+                    filteredList.add(ex);
                 }
             }
         }
@@ -68,20 +70,16 @@ public class AddExerciseToDiaryAdapter extends RecyclerView.Adapter<AddExerciseT
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView foodName;
-        TextView calories;
-        TextView servingSize;
-        TextView brandName;
+        TextView exerciseName;
+        TextView caloriesPerHour;
 
         private OnItemClickListener mListener;
 
         public ViewHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
 
-            foodName = itemView.findViewById(R.id.foodNameTv);
-            calories = itemView.findViewById(R.id.caloriesTv);
-            servingSize = itemView.findViewById(R.id.servingSizeTv);
-            brandName = itemView.findViewById(R.id.brandNameTv);
+            exerciseName = itemView.findViewById(R.id.exerciseName);
+            caloriesPerHour = itemView.findViewById(R.id.caloriesPerHour);
 
             mListener = listener;
 
@@ -91,7 +89,7 @@ public class AddExerciseToDiaryAdapter extends RecyclerView.Adapter<AddExerciseT
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION && mListener != null) {
-                mListener.onItemClick(filteredListBreakfast.get(position));
+                mListener.onItemClick(filteredList.get(position));
             }
         }
     }

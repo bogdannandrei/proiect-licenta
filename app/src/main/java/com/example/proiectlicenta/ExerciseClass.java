@@ -6,6 +6,10 @@ public class ExerciseClass implements Serializable {
     private String name;
     private int caloriesPerHour;
 
+    public ExerciseClass(){
+
+    }
+
     public ExerciseClass(String name, int caloriesPerHour) {
         this.name = name;
         this.caloriesPerHour = caloriesPerHour;

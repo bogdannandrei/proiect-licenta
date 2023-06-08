@@ -45,7 +45,7 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
 
         Food food = filteredListBreakfast.get(position);
         holder.foodName.setText(food.getFoodName());
-        holder.calories.setText(food.getCalories() + " cal");
+        holder.calories.setText(String.valueOf(food.getCalories()));
         holder.servingSize.setText("100 gram");
         holder.brandName.setText(food.getBrandName());
     }
@@ -83,10 +83,10 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
         public ViewHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
 
-            foodName = itemView.findViewById(R.id.foodNameTv);
-            calories = itemView.findViewById(R.id.caloriesTv);
-            servingSize = itemView.findViewById(R.id.servingSizeTv);
-            brandName = itemView.findViewById(R.id.brandNameTv);
+            foodName = itemView.findViewById(R.id.foodName);
+            calories = itemView.findViewById(R.id.caloriesNumber);
+            servingSize = itemView.findViewById(R.id.servingSize);
+            brandName = itemView.findViewById(R.id.brandName);
 
             mListener = listener;
 

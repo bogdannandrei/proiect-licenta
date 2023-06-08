@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -90,10 +91,11 @@ public class AddExerciseToDiary extends AppCompatActivity {
         adapter.setOnItemClickListener(new AddExerciseToDiaryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ExerciseClass exercise) {
-                Intent i = new Intent(AddExerciseToDiary.this, LogExercise.class);
+                /* Intent i = new Intent(AddExerciseToDiary.this, LogExercise.class);
                 i.putExtra("phone", phoneNumber);
                 i.putExtra("Exercise", exercise);
-                startActivity(i);
+                startActivity(i); */
+                Toast.makeText(AddExerciseToDiary.this, "Button clicked", Toast.LENGTH_SHORT).show();
             }
         });
     }

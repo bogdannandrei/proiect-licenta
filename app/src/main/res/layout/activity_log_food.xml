@@ -87,7 +87,7 @@
                 android:textSize="14sp"
                 android:padding="8dp"
                 android:gravity="right"
-                android:inputType="numberDecimal"
+                android:inputType=""
                 android:hint="ex: 1"
                 android:layout_marginRight="10dp"/>
         </LinearLayout>

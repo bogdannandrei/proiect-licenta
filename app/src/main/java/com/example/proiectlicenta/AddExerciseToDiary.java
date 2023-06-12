@@ -91,11 +91,10 @@ public class AddExerciseToDiary extends AppCompatActivity {
         adapter.setOnItemClickListener(new AddExerciseToDiaryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ExerciseClass exercise) {
-                /* Intent i = new Intent(AddExerciseToDiary.this, LogExercise.class);
+                Intent i = new Intent(AddExerciseToDiary.this, LogExercise.class);
                 i.putExtra("phone", phoneNumber);
                 i.putExtra("Exercise", exercise);
-                startActivity(i); */
-                Toast.makeText(AddExerciseToDiary.this, "Button clicked", Toast.LENGTH_SHORT).show();
+                startActivity(i);
             }
         });
     }

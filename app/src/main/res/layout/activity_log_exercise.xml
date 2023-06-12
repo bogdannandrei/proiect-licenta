@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context=".LogFood">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/exerciseName"
+        android:text="Exercise name"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/lin_layout_lightgrey_border"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="350dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Calories burned / hour"
+                android:textSize="14sp"
+                android:layout_marginLeft="10dp"/>
+
+            <!-- Right EditText -->
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/calsBurned"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:gravity="right"
+                android:inputType="text"
+                android:hint="555"
+                android:layout_marginRight="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Time"
+                android:textSize="14sp"
+                android:layout_marginLeft="10dp"/>
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:id="@+id/time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:gravity="right"
+                android:inputType="datetime"
+                android:hint="H:MM"
+                android:layout_marginRight="10dp"
+                android:maxLength="5"/>
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total calories burned"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"/>
+
+                <!-- Right EditText -->
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/totalCalories"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textSize="16sp"
+                    android:padding="8dp"
+                    android:gravity="right"
+                    android:text="555"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/logExercise"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:backgroundTint="#7E7E7E"
+                android:text="Log exercise" />
+        </LinearLayout>
+
+    </LinearLayout>

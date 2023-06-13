@@ -14,12 +14,12 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/foodNameTv"
+            android:id="@+id/exerciseNameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:text="Fulgi de porumb" />
+            android:text="Exercise name" />
 
         <TextView
             android:id="@+id/caloriesTv"
@@ -33,41 +33,31 @@
             android:layout_centerVertical="true" />
 
         <LinearLayout
-            android:id="@+id/detailsLayout"
+            android:id="@+id/timeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/foodNameTv"
+            android:layout_below="@id/exerciseNameTv"
             android:orientation="horizontal"
             android:layout_marginTop="8dp">
 
             <TextView
-                android:id="@+id/servingSizeLabelTv"
+                android:id="@+id/timeLabelTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textColor="#9F9F9F"
-                android:text="Serving Size: "
+                android:text="Time: "
                 />
 
             <TextView
-                android:id="@+id/servingSizeTv"
+                android:id="@+id/boldTimeTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
+                android:textStyle="bold"
                 android:textColor="#9F9F9F"
-                android:text="100 gram"
-                />
+                android:text="10:30" />
 
-            <TextView
-                android:id="@+id/brandNameTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#9F9F9F"
-                android:text=" Simplu"
-                android:layout_marginStart="8dp"
-                android:layout_gravity="center_vertical"
-                />
         </LinearLayout>
 
     </RelativeLayout>

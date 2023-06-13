@@ -2,42 +2,46 @@ package com.example.proiectlicenta;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Exercise#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+
 public class Exercise extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    DatabaseReference databaseReference;
+    private ImageView prevDayButton;
+    private ImageView nextDayButton;
+    private TextView dateTextView;
+    private Calendar calendar;
+    private TextView exerciseCalories;
+    private ExerciseLogAdapter exerciseLogAdapter;
+    private RecyclerView exerciseRecyclerView;
+    ArrayList<ExerciseLog> exerciseList = new ArrayList<ExerciseLog>();
+    ArrayList<ExerciseLog> filteredExerciseList = new ArrayList<ExerciseLog>();
+    String phoneNumber;
+    int exerciseSum = 0;
 
     public Exercise() {
-        // Required empty public constructor
+
     }
 
-    /*
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Exercise.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Exercise newInstance(String phoneNumber) {
         Exercise fragment = new Exercise();
         Bundle args = new Bundle();
@@ -50,19 +54,100 @@ public class Exercise extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            phoneNumber = getArguments().getString("phone");
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_exercise, container, false);
-        TextView tv = view.findViewById(R.id.tv);
-        String phoneNumber = getArguments().getString("phone");
-        tv.setText("nr: "+ phoneNumber);
+        View view = inflater.inflate(R.layout.fragment_exercise, container, false);
+        databaseReference = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app").getReference(phoneNumber + "_exercise");
+        exerciseCalories = view.findViewById(R.id.exercise_calories);
+        exerciseRecyclerView = view.findViewById(R.id.breakfast_recycler_view);
+        prevDayButton = view.findViewById(R.id.prev_day_button);
+        nextDayButton = view.findViewById(R.id.next_day_button);
+        dateTextView = view.findViewById(R.id.date_text_view);
+
+
+        calendar = Calendar.getInstance();
+        updateDateText();
+        System.out.println(calendar.get(Calendar.YEAR));
+        System.out.println(calendar.get(Calendar.MONTH));
+        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    ExerciseLog el = dataSnapshot.getValue(ExerciseLog.class);
+                    exerciseList.add(el);
+                }
+                updateRecyclerView();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle onCancelled if needed
+            }
+        });
+
+        prevDayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calendar.add(Calendar.DAY_OF_MONTH, -1);
+                updateDateText();
+                updateRecyclerView();
+            }
+        });
+        nextDayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calendar.add(Calendar.DAY_OF_MONTH, 1);
+                updateDateText();
+                updateRecyclerView();
+            }
+        });
+
         return view;
+    }
+
+    private void updateRecyclerView() {
+        filteredExerciseList.clear();
+        exerciseSum = 0;
+
+        filteredExerciseList = filterByDateAndMealType(exerciseList, calendar, "breakfast");
+        exerciseLogAdapter = new ExerciseLogAdapter(getContext(), filteredExerciseList, calendar);
+        for(ExerciseLog el : filteredExerciseList){
+            exerciseSum += el.getCaloriesBurned();
+        }
+        exerciseCalories.setText(exerciseSum + " kcal");
+        exerciseRecyclerView.setAdapter(exerciseLogAdapter);
+        exerciseLogAdapter.notifyDataSetChanged();
+
+    }
+
+
+
+    private static ArrayList<ExerciseLog> filterByDateAndMealType(ArrayList<ExerciseLog> list, Calendar selectedDate, String mealType) {
+        ArrayList<ExerciseLog> filteredList = new ArrayList<>();
+
+        for (ExerciseLog exerciseLog : list) {
+            if (exerciseLog.getYear() == selectedDate.get(Calendar.YEAR) &&
+                    exerciseLog.getMonth() == (selectedDate.get(Calendar.MONTH)+1) &&
+                    exerciseLog.getDay() == selectedDate.get(Calendar.DAY_OF_MONTH)) {
+                filteredList.add(exerciseLog);
+            }
+        }
+
+        return filteredList;
+    }
+
+    private void updateDateText() {
+        // Format the current date as a string
+        String dateString = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+
+        // Set the date string to the date text view
+        dateTextView.setText(dateString);
     }
 }

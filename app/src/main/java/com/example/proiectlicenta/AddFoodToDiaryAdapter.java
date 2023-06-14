@@ -62,14 +62,19 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
         } else {
             text = text.toLowerCase();
             for (Food food : list) {
-                if (food.getFoodName().toLowerCase().contains(text) ||
-                        food.getBrandName().toLowerCase().contains(text)) {
+                String foodName = food.getFoodName();
+                String brandName = food.getBrandName();
+
+                if (foodName != null && foodName.toLowerCase().contains(text)) {
+                    filteredListBreakfast.add(food);
+                } else if (brandName != null && brandName.toLowerCase().contains(text)) {
                     filteredListBreakfast.add(food);
                 }
             }
         }
         notifyDataSetChanged();
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 

@@ -78,7 +78,11 @@ public class LogFood extends AppCompatActivity {
         mealTypeSpinner.setAdapter(adapter);
 
         foodName.setText(f.getFoodName().toString());
-        brandName.setText(f.getBrandName().toString());
+        if(f.getBrandName() == null) {
+            brandName.setText("");
+        } else {
+            brandName.setText(f.getBrandName().toString());
+        }
 
         double servingSize = 1;
 
@@ -157,7 +161,12 @@ public class LogFood extends AppCompatActivity {
                 fl.setProtein(Double.parseDouble(df.format(f.getProtein() * servingSize * nrOfServings).replace(",",".")));
                 fl.setFats(Double.parseDouble(df.format(f.getFats() * servingSize * nrOfServings).replace(",",".")));
                 fl.setServingSize("100 gram");
-                fl.setBrandName(f.getBrandName().toString());
+                if(f.getBrandName() == null){
+                    fl.setBrandName(null);
+                } else {
+                    fl.setBrandName(f.getBrandName().toString());
+                }
+
                 databaseReference.child(String.valueOf(maxID+1)).setValue(fl);
                 Toast.makeText(LogFood.this, "Food added to diary succesfully.", Toast.LENGTH_SHORT).show();
                 finish();

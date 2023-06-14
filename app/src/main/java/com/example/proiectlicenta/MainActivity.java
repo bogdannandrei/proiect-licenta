@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app").getReference().child("exercise");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app").getReference().child("food");
     private static BottomNavigationView bottomNavigationView;
     private FloatingActionButton fab;
     private FloatingActionButton fabFood;
@@ -124,7 +124,60 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Exercises added!", Toast.LENGTH_SHORT).show();
             }
         });
-        */
+
+
+        List<Food> foodList = new ArrayList<>();
+
+
+        foodList.add(new Food(6, "Broccoli", null, null, 55.0, 11.2, 4.2, 0.6, false));
+foodList.add(new Food(7, "Pepene verde", null, null, 30.0, 7.6, 0.6, 0.2, false));
+foodList.add(new Food(8, "Seminte de dovleac", null, null, 559.0, 14.7, 29.8, 45.8, false));
+foodList.add(new Food(9, "Linte", null, null, 353.0, 63.0, 25.0, 1.1, false));
+foodList.add(new Food(10, "Prune", null, null, 240.0, 63.0, 2.0, 0.4, false));
+foodList.add(new Food(11, "Ulei de cocos", null, null, 862.0, 0.0, 0.0, 100.0, false));
+foodList.add(new Food(12, "Quinoa", null, null, 368.0, 64.2, 14.1, 6.1, false));
+foodList.add(new Food(13, "Afine", null, null, 57.0, 14.5, 0.7, 0.3, false));
+foodList.add(new Food(14, "Spanac", null, null, 23.0, 3.6, 2.9, 0.4, false));
+foodList.add(new Food(15, "Nuci de Brazilia", null, null, 656.0, 12.3, 14.1, 65.0, false));
+foodList.add(new Food(16, "Hummus", null, null, 166.0, 8.2, 7.9, 12.6, false));
+foodList.add(new Food(17, "Kiwi", null, null, 61.0, 14.7, 1.1, 0.5, false));
+foodList.add(new Food(18, "Quinoa neagră", null, null, 368.0, 64.2, 14.1, 6.1, false));
+foodList.add(new Food(19, "Seminte de in", null, null, 534.0, 28.9, 18.3, 42.2, false));
+foodList.add(new Food(20, "Ardei gras", null, null, 31.0, 6.0, 1.3, 0.3, false));
+foodList.add(new Food(21, "Nuci", null, null, 654.0, 13.7, 15.2, 64.2, false));
+foodList.add(new Food(22, "Mazăre", null, null, 81.0, 14.5, 5.2, 0.4, false));
+foodList.add(new Food(23, "Pepene galben", null, null, 30.0, 7.6, 0.6, 0.2, false));
+foodList.add(new Food(24, "Seminte de chia", null, null, 486.0, 42.1, 16.5, 30.7, false));
+foodList.add(new Food(25, "Spanac proaspăt", null, null, 23.0, 3.6, 2.9, 0.4, false));
+foodList.add(new Food(26, "Alune", null, null, 594.0, 11.6, 20.9, 49.4, false));
+foodList.add(new Food(27, "Morcovi", null, null, 41.0, 10.0, 0.9, 0.2, false));
+foodList.add(new Food(28, "Caju", null, null, 553.0, 30.2, 18.2, 43.9, false));
+foodList.add(new Food(29, "Broccoli congelat", null, null, 55.0, 11.2, 4.2, 0.6, false));
+foodList.add(new Food(30, "Pere", null, null, 57.0, 15.5, 0.4, 0.3, false));
+foodList.add(new Food(31, "Migdale", null, null, 579.0, 21.7, 21.2, 49.9, false));
+foodList.add(new Food(32, "Vinete", null, null, 25.0, 6.0, 1.0, 0.2, false));
+foodList.add(new Food(33, "Kale", null, null, 49.0, 9.0, 4.3, 0.9, false));
+foodList.add(new Food(34, "Caise", null, null, 48.0, 11.0, 0.9, 0.1, false));
+foodList.add(new Food(35, "Seminte de floarea-soarelui", null, null, 584.0, 20.0, 20.0, 51.0, false));
+foodList.add(new Food(36, "Salată verde", null, null, 13.0, 2.2, 1.5, 0.2, false));
+foodList.add(new Food(37, "Mere", null, null, 52.0, 14.0, 0.3, 0.2, false));
+foodList.add(new Food(38, "Seminte de susan", null, null, 573.0, 10.3, 18.0, 52.0, false));
+foodList.add(new Food(39, "Sparanghel", null, null, 20.0, 3.7, 2.2, 0.2, false));
+foodList.add(new Food(40, "Avocado", null, null, 160.0, 9.0, 2.0, 14.7, false));
+
+
+        fabFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                        for (int i = 0; i < foodList.size(); i++) {
+                            Food food = foodList.get(i);
+                            String exerciseKey = String.valueOf(i);
+                            DatabaseReference exerciseRef = databaseReference.child(exerciseKey);
+                            exerciseRef.setValue(food);
+                        }
+                        Toast.makeText(MainActivity.this, "Foods added!", Toast.LENGTH_SHORT).show();
+                    }
+                }); */
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -173,7 +226,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         fabExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

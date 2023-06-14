@@ -34,6 +34,7 @@ import java.util.Locale;
 public class Dashboard extends Fragment {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app").getReference();
     DatabaseReference dbrFood;
+    DatabaseReference dbrExercise;
     String full_name;
     double total_calories;
     double daily_carb;
@@ -53,6 +54,9 @@ public class Dashboard extends Fragment {
 
     ArrayList<FoodLog> foodList = new ArrayList<FoodLog>();
     ArrayList<FoodLog> todayFoodList = new ArrayList<FoodLog>();
+
+    ArrayList<ExerciseLog> exerciseList = new ArrayList<ExerciseLog>();
+    ArrayList<ExerciseLog> todayExerciseList = new ArrayList<ExerciseLog>();
     Calendar calendar = Calendar.getInstance();
 
     // TODO: Rename parameter arguments, choose names that match
@@ -92,6 +96,7 @@ public class Dashboard extends Fragment {
 
         String phoneNumber = getArguments().getString("phone");
         dbrFood = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app").getReference(phoneNumber + "_food");
+        dbrExercise = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app").getReference(phoneNumber + "_exercise");
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         TextView hello_tv = view.findViewById(R.id.tv);
         TextView bottomTv = view.findViewById(R.id.tv2);
@@ -137,6 +142,30 @@ public class Dashboard extends Fragment {
             }
         });
 
+        dbrExercise.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    ExerciseLog el = dataSnapshot.getValue(ExerciseLog.class);
+                    exerciseList.add(el);
+                }
+                for (ExerciseLog el : exerciseList) {
+                    if (el.getYear() == calendar.get(Calendar.YEAR) &&
+                            el.getMonth() == (calendar.get(Calendar.MONTH)+1) &&
+                            el.getDay() == calendar.get(Calendar.DAY_OF_MONTH)) {
+                        todayExerciseList.add(el);
+                    }
+                }
+                for(ExerciseLog el : todayExerciseList){
+                    exerciseCalories += el.getCaloriesBurned();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle onCancelled if needed
+            }
+        });
 
          databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

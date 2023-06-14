@@ -12,8 +12,21 @@ public class Food implements Serializable {
     private double carbs;
     private double protein;
     private double fats;
+    private boolean isVerified;
 
     public Food() {
+    }
+
+    public Food(int foodID, String foodName, String brandName, String barcode, double calories, double carbs, double protein, double fats, boolean isVerified) {
+        this.foodID = foodID;
+        this.brandName = brandName;
+        this.foodName = foodName;
+        this.barcode = barcode;
+        this.calories = calories;
+        this.carbs = carbs;
+        this.protein = protein;
+        this.fats = fats;
+        this.isVerified = isVerified;
     }
 
     public int getFoodID() {
@@ -78,5 +91,13 @@ public class Food implements Serializable {
 
     public void setFats(double fats) {
         this.fats = fats;
+    }
+
+    public boolean isVerified() {
+        return isVerified;
+    }
+
+    public void setVerified(boolean verified) {
+        isVerified = verified;
     }
 }

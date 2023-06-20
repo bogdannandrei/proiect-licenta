@@ -1,15 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tv"
+    <!-- Modify daily steps -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/lin_layout_lightgrey_border">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tvModifySteps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Modify daily steps"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/etModifySteps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:gravity="right"
+            android:inputType="number"
+            android:hint="Enter daily steps"
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
+
+    <!-- Change name -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/lin_layout_lightgrey_border">
+
+        <TextView
+            android:id="@+id/tvChangeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Change name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/etChangeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:gravity="right"
+            android:inputType="text"
+            android:hint="Enter new name"
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
+
+    <!-- Change gender -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/lin_layout_lightgrey_border">
+
+        <TextView
+            android:id="@+id/tvChangeGender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Change gender"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="10dp" />
+
+        <Spinner
+            android:id="@+id/spinnerChangeGender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:padding="10dp"
+            android:spinnerMode="dropdown"
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
+
+    <!-- Change password -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/lin_layout_lightgrey_border">
+
+        <TextView
+            android:id="@+id/tvChangePassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Change password"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/etChangePassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:gravity="right"
+            android:inputType="textPassword"
+            android:hint="Enter new password"
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
+
+    <!-- Save button -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:id="@+id/btnSaveSettings"
+        android:text="Save"
+        android:backgroundTint="#D3D3D3"
+        android:textColor="#000000" />
+
+</LinearLayout>

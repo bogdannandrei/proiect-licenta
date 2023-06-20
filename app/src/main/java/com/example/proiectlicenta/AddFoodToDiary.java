@@ -34,6 +34,7 @@ public class AddFoodToDiary extends AppCompatActivity {
     AddFoodToDiaryAdapter adapter;
     ArrayList<Food> list;
     TextView addFoodToDB;
+    TextView addMealToDB;
     EditText foodFilter;
     ImageButton barcodeBtn;
     public AddFoodToDiary() {
@@ -48,6 +49,7 @@ public class AddFoodToDiary extends AppCompatActivity {
         barcodeBtn = findViewById(R.id.barcode_button);
         foodFilter = findViewById(R.id.food_name);
         addFoodToDB = findViewById(R.id.addFoodToDB);
+        addMealToDB = findViewById(R.id.addMealToDB);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -60,6 +62,14 @@ public class AddFoodToDiary extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AddFoodToDiary.this,AddFoodToDb.class);
+                startActivity(intent);
+            }
+        });
+
+        addMealToDB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddFoodToDiary.this,AddMealToDb.class);
                 startActivity(intent);
             }
         });

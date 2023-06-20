@@ -62,9 +62,6 @@ public class Settings extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         String phoneNumber = getArguments().getString("phone");
-        TextView tv = view.findViewById(R.id.tv);
-
-        tv.setText("nr: "+ phoneNumber);
 
 
         return view;

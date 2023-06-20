@@ -100,4 +100,10 @@ public class Food implements Serializable {
     public void setVerified(boolean verified) {
         isVerified = verified;
     }
+
+    @Override
+    public String toString() {
+        return foodName;
+    }
+
 }

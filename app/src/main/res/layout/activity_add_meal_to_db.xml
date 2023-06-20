@@ -1,0 +1,211 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Text input for meal name -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Meal Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextMealName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Nutritional information -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewCaloriesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calories"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textViewCaloriesValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewCarbsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carbs"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textViewCarbsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewProteinLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Protein"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textViewProteinValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewFatsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fats"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textViewFatsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+    <!-- Food selection -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/containerAdditionalFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Initial food selection item -->
+                <LinearLayout
+                    android:id="@+id/foodSelectionItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <Spinner
+                        android:id="@+id/spinnerFood"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_marginRight="8dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Grams">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextGrams"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- Button section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <!-- Save Meal button -->
+        <Button
+            android:id="@+id/buttonAddFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Food" />
+
+    </LinearLayout>
+
+    <!-- Add Food button -->
+    <Button
+        android:id="@+id/buttonSaveMeal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Meal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
+</LinearLayout>

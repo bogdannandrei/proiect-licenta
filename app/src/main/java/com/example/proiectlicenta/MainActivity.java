@@ -168,16 +168,15 @@ foodList.add(new Food(40, "Avocado", null, null, 160.0, 9.0, 2.0, 14.7, false));
 
         fabFood.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                        for (int i = 0; i < foodList.size(); i++) {
-                            Food food = foodList.get(i);
-                            String exerciseKey = String.valueOf(i);
-                            DatabaseReference exerciseRef = databaseReference.child(exerciseKey);
-                            exerciseRef.setValue(food);
-                        }
-                        Toast.makeText(MainActivity.this, "Foods added!", Toast.LENGTH_SHORT).show();
-                    }
-                }); */
+                public void onClick(View view) {
+                    for (Food food : foodList) {
+                        DatabaseReference foodRef = databaseReference.push();
+                        foodRef.setValue(food);
+                         }
+            Toast.makeText(MainActivity.this, "Foods added!", Toast.LENGTH_SHORT).show();
+    }
+});
+ */
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

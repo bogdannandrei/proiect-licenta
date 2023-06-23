@@ -5,46 +5,56 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="30dp"
-    tools:context=".Additional_information">
+    tools:context=".Additional_information"
+    android:background="#EDEDED">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="20dp">
+        android:background="#EDEDED">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:text="Adding additional info"
+            android:fontFamily="@font/sfpro"
             android:textSize="30dp"
-            android:layout_marginBottom="15dp"/>
+            android:textColor="#000000" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Please answer these questions"
+            android:layout_marginBottom="30dp"
             android:gravity="start"
+            android:text="Please answer these questions"
+            android:fontFamily="@font/sfpro"
             android:textSize="16dp"
-            android:layout_marginBottom="30dp"/>
+            android:textColor="#000000"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
-        android:paddingTop="15dp">
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:background="#EDEDED">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What gender are you?"
-            android:gravity="start"
-            android:textSize="18dp"
-            android:textStyle="bold"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp" />
+            android:layout_marginBottom="15dp"
+            android:gravity="start"
+            android:text="What is your gender?"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <RadioGroup
             android:id="@+id/genderRadioGroup"
@@ -56,31 +66,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:fontFamily="@font/sfpro"
+                android:button="@android:color/transparent"
+                android:background="@drawable/radio_selector"
+                android:textColor="@drawable/radio_text_color"
+                android:elevation="1dp"
+                android:padding="10dp"
+                android:layout_marginBottom="5dp"
                 android:text="Male" />
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/femaleBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/sfpro"
+                android:button="@android:color/transparent"
+                android:background="@drawable/radio_selector"
+                android:textColor="@drawable/radio_text_color"
+                android:padding="10dp"
+                android:elevation="1dp"
                 android:text="Female" />
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="When were you born?"
-            android:gravity="start"
-            android:textSize="18dp"
-            android:textStyle="bold"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp" />
+            android:layout_marginBottom="15dp"
+            android:gravity="start"
+            android:text="When were you born?"
+            android:textSize="18dp"
+            android:fontFamily="@font/sfpro"
+            android:textStyle="bold"
+            android:textColor="#000000" />
 
         <DatePicker
+            android:id="@+id/calendar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:datePickerMode="spinner"
             android:calendarViewShown="false"
-            android:id="@+id/calendar"
+            android:datePickerMode="spinner"
+            android:fontFamily="@font/sfpro"
+            android:calendarTextColor="#000000"
             />
 
 
@@ -88,12 +115,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#EDEDED">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_ios"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:text="Next" />
     </LinearLayout>
 </LinearLayout>

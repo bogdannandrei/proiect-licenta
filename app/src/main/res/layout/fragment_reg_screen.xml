@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="30dp"
+    android:background="#EDEDED"
     tools:context=".setUpGoals">
 
     <LinearLayout
@@ -13,7 +14,8 @@
         android:gravity="center"
         android:orientation="vertical"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="25dp" >
+        android:layout_marginBottom="25dp"
+        android:background="#EDEDED" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,14 +23,19 @@
             android:textAlignment="center"
             android:text="Account created successfully!"
             android:textSize="30dp"
-            android:layout_marginBottom="15dp"/>
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="You are one step closer towards reaching your goals!"
             android:textAlignment="center"
             android:textSize="16dp"
-            android:layout_marginBottom="30dp"/>
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"/>
     </LinearLayout>
 
     <LinearLayout
@@ -38,16 +45,21 @@
         android:layout_weight="1"
         android:paddingTop="15dp"
         android:paddingStart="15dp"
+        android:background="#EDEDED"
         android:paddingEnd="15dp">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:background="#EDEDED" >
             <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="start"
             android:layout_marginBottom="20dp"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:textSize="18dp"
             android:text="Daily calorie goal: "/>
 
@@ -58,6 +70,8 @@
                 android:layout_weight="1"
                 android:textStyle="bold"
                 android:textSize="20dp"
+                android:fontFamily="@font/sfpro"
+                android:textColor="#000000"
                 android:text="x"
                 android:gravity="end" />
         </LinearLayout>
@@ -65,13 +79,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:background="#EDEDED">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:textSize="18dp"
+                android:fontFamily="@font/sfpro"
+                android:textColor="#000000"
                 android:text="Daily carbs goal: "/>
 
             <TextView
@@ -80,6 +97,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textStyle="bold"
+                android:fontFamily="@font/sfpro"
+                android:textColor="#000000"
                 android:textSize="20dp"
                 android:text="x"
                 android:gravity="end" />
@@ -88,14 +107,16 @@
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp" >
+        android:layout_marginBottom="20dp"
+        android:background="#EDEDED">
 
            <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="start"
-
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:textSize="18dp"
             android:text="Daily protein goal: "/>
 
@@ -106,6 +127,8 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:textSize="20dp"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:text="x"
             android:gravity="end" />
     </LinearLayout>
@@ -113,7 +136,8 @@
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp" >
+        android:layout_marginBottom="50dp"
+        android:background="#EDEDED">
 
         <TextView
             android:layout_width="match_parent"
@@ -121,6 +145,8 @@
             android:layout_weight="1"
             android:gravity="start"
             android:textSize="18dp"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:text="Daily fats goal: "/>
 
         <TextView
@@ -130,6 +156,8 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:textSize="20dp"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:text="x"
             android:gravity="end" />
     </LinearLayout>
@@ -140,19 +168,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:text="It is important to note that this is a tailored recommendation for you and should be followed in conjunction with a well-balanced diet and regular physical activity."/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#EDEDED" >
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Go to the login screen"/>
+            android:fontFamily="@font/sfpro"
+            android:background="@drawable/button_ios"
+            android:textColor="#000000"
+            android:text="Go to the login screen"
+            />
     </LinearLayout>
 </LinearLayout>
 

@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="#EDEDED"
     tools:context=".Login">
-    <TextView
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login here"
-        android:gravity="center"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="20dp"
-        />
+        android:layout_marginBottom="15dp"
+        android:contentDescription="Login Image"
+        android:src="@drawable/logo" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,11 +23,16 @@
         android:id="@+id/phone"
         android:hint="Mobile"
         android:maxLines="1"
+        android:fontFamily="@font/sfpro"
+        android:background="@drawable/edittext_ios"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
         android:paddingStart="20dp"
-        android:paddingEnd="0dp"/>
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingEnd="0dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -36,39 +41,51 @@
         android:id="@+id/password"
         android:hint="Password"
         android:maxLines="1"
+        android:fontFamily="@font/sfpro"
+        android:background="@drawable/edittext_ios"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:paddingStart="20dp"
-        android:paddingEnd="0dp"/>
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingEnd="0dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:background="@drawable/button_ios"
+        android:fontFamily="@font/sfpro"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Login"/>
+        android:text="Login" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp" >
-        
+        android:layout_marginTop="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sfpro"
             android:text="Don't have an account?" />
 
         <TextView
             android:id="@+id/registerNowBtn"
             android:layout_marginStart="5dp"
+            android:fontFamily="@font/sfpro"
             android:layout_width="wrap_content"
+            android:textColor="#A2D9A8"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Register now!" />
+
     </LinearLayout>
+
+
 
 </LinearLayout>

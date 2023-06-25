@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    tools:context=".Dashboard">
+    android:background="#EDEDED"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#EDEDED"
+        tools:context=".Dashboard" >
+
     <TextView
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -16,6 +21,8 @@
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/sfpro"
+        android:textColor="#000000"
         android:text="Hello" />
 
     <TextView
@@ -24,6 +31,8 @@
         android:textSize="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/sfpro"
+        android:textColor="#000000"
         android:text="Interchangeable text" />
 
     <LinearLayout
@@ -31,7 +40,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="#F5F5F5"
+        android:background="@drawable/layout_rounded_corners"
+        android:padding="5dp"
+        android:elevation="4dp"
         android:orientation="vertical">
 
         <TextView
@@ -40,7 +51,9 @@
             android:layout_margin="10dp"
             android:text="Calories"
             android:textSize="22dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="@font/sfpro"/>
 
         <LinearLayout
     android:layout_width="match_parent"
@@ -75,7 +88,8 @@
                         android:text="----"
                         android:textColor="#000000"
                         android:textSize="20dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/sfpro"/>
 
                     <TextView
                         android:id="@+id/bottom_cal_textview"
@@ -84,7 +98,9 @@
                         android:text="Remaining"
                         android:textSize="15dp"
                         android:textStyle="bold"
-                        android:layout_marginTop="8dp" />
+                        android:layout_marginTop="8dp"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/sfpro"/>
 
                 </LinearLayout>
 
@@ -105,7 +121,8 @@
             android:layout_height="wrap_content"
             android:text="Total calories:"
             android:id="@+id/totalCaloriesTv"
-            android:textColor="#333333"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:textSize="14sp" />
 
                 <TextView
@@ -113,41 +130,46 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/totalCalories"
                     android:text=" "
-                    android:textColor="#333333"
+                    android:textColor="#000000"
                     android:textSize="14sp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/sfpro"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Food calories:"
-            android:textColor="#333333"
-            android:textSize="14sp" />
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:fontFamily="@font/sfpro"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/foodCalories"
                     android:text=" "
-                    android:textColor="#333333"
+                    android:textColor="#000000"
                     android:textSize="14sp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/sfpro"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Exercise calories:"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/sfpro"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/exerciseCalories"
                     android:text=" "
-                    android:textColor="#333333"
+                    android:textColor="#000000"
                     android:textSize="14sp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/sfpro" />
             </LinearLayout>
         </LinearLayout>
 
@@ -160,17 +182,21 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
-        android:background="#F5F5F5"
-        android:orientation="vertical">
+        android:padding="5dp"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:background="@drawable/layout_rounded_corners">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/sfpro"
             android:text="Macros"
             android:textSize="22dp"
+            android:textColor="#000000"
             android:textStyle="bold" />
 
         <RelativeLayout
@@ -189,7 +215,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:textColor="#000000"
+                android:fontFamily="@font/sfpro"/>
 
             <TextView
                 android:id="@+id/carb_textview_right"
@@ -200,7 +228,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:textColor="#000000"
+                android:fontFamily="@font/sfpro"/>
 
             <ProgressBar
                 android:id="@+id/carb_horizontal_progressbar"
@@ -233,7 +263,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:textColor="#000000"
+                android:fontFamily="@font/sfpro"/>
 
             <TextView
                 android:id="@+id/protein_textview_right"
@@ -244,7 +276,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:textColor="#000000"
+                android:fontFamily="@font/sfpro"/>
 
             <ProgressBar
                 android:id="@+id/protein_horizontal_progressbar"
@@ -278,7 +312,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:textColor="#000000"
+                android:fontFamily="@font/sfpro"/>
 
             <TextView
                 android:id="@+id/fats_textview_right"
@@ -289,7 +325,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:textColor="#000000"
+                android:fontFamily="@font/sfpro"/>
 
             <ProgressBar
                 android:id="@+id/fats_horizontal_progressbar"
@@ -309,4 +347,169 @@
 
 
     </LinearLayout>
-</LinearLayout>
+
+    <!-- Adaugă un nou LinearLayout pentru cele două casete mici -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:background="#EDEDED" >
+
+        <!-- Prima casetă mică -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/layout_rounded_corners"
+            android:elevation="4dp"
+            android:padding="10dp">
+
+            <!-- Conținutul primei casete mici -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Steps"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="@font/sfpro" />
+
+            <!-- Linie 1: ImageView și TextView pentru număr -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="33dp"
+                    android:layout_height="57dp"
+                    android:src="@drawable/step_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="5dp"
+                    android:fontFamily="@font/sfpro"
+                    android:id="@+id/stepsTv"
+                    android:text="1234"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Linie 3: TextView pentru "Goal" -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Goal"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:id="@+id/stepGoalTv"
+                android:textColor="#000000"
+                android:fontFamily="@font/sfpro"/>
+
+            <!-- Linie 4: ProgressBar -->
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:indeterminate="false"
+                android:progress="50"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:progressTint="#7E0000"
+                android:id="@+id/stepProgressBar"/>
+
+        </LinearLayout>
+
+
+        <!-- A doua casetă mică -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/layout_rounded_corners"
+            android:elevation="4dp"
+            android:padding="10dp">
+
+            <!-- Conținutul celei de-a doua casete mici -->
+            <!-- Exemplu de TextView -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Exercise"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="@font/sfpro" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="33dp"
+                    android:layout_height="57dp"
+                    android:src="@drawable/fire_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="5dp"
+                    android:fontFamily="@font/sfpro"
+                    android:id="@+id/exerciseCalories2"
+                    android:text="0 kcal"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:maxLines="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="33dp"
+                    android:layout_height="57dp"
+                    android:src="@drawable/time_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="5dp"
+                    android:fontFamily="@font/sfpro"
+                    android:id="@+id/exerciseTime"
+                    android:text="00:00:00"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@android:color/transparent" />
+
+    </LinearLayout>
+</ScrollView>

@@ -169,7 +169,7 @@ public class LogExercise extends AppCompatActivity {
                 LocalDate date = LocalDate.now();
                 el.setExerciseName(e.getName());
                 el.setTime(time.getText().toString());
-                el.setCaloriesBurned(Double.parseDouble(totalCalories.getText().toString()));
+                el.setCaloriesBurned(Double.parseDouble(totalCalories.getText().toString().replace(",", ".")));
                 el.setYear(date.getYear());
                 el.setMonth(date.getMonthValue());
                 el.setDay(date.getDayOfMonth());

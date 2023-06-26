@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ebebeb" >
 
     <!-- Modify daily steps -->
     <LinearLayout
@@ -9,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="40dp"
-        android:background="@drawable/lin_layout_lightgrey_border">
+        android:background="#ebebeb">
 
         <TextView
             android:id="@+id/tvModifySteps"
@@ -19,6 +20,8 @@
             android:text="Modify daily steps"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:padding="10dp" />
 
         <EditText
@@ -31,6 +34,8 @@
             android:padding="10dp"
             android:gravity="right"
             android:inputType="number"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:hint="Enter daily steps"
             android:layout_marginRight="10dp" />
     </LinearLayout>
@@ -40,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/lin_layout_lightgrey_border">
+        android:background="#ebebeb">
 
         <TextView
             android:id="@+id/tvChangeName"
@@ -50,6 +55,8 @@
             android:text="Change name"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:padding="10dp" />
 
         <EditText
@@ -63,6 +70,8 @@
             android:gravity="right"
             android:inputType="text"
             android:hint="Enter new name"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:layout_marginRight="10dp" />
     </LinearLayout>
 
@@ -71,7 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/lin_layout_lightgrey_border">
+        android:background="#ebebeb">
 
         <TextView
             android:id="@+id/tvChangeGender"
@@ -81,6 +90,8 @@
             android:text="Change gender"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:padding="10dp" />
 
         <Spinner
@@ -88,9 +99,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
             android:padding="10dp"
             android:spinnerMode="dropdown"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:layout_marginRight="10dp" />
     </LinearLayout>
 
@@ -99,7 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/lin_layout_lightgrey_border">
+        android:background="#ebebeb">
 
         <TextView
             android:id="@+id/tvChangePassword"
@@ -109,6 +121,8 @@
             android:text="Change password"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:padding="10dp" />
 
         <EditText
@@ -121,9 +135,33 @@
             android:padding="10dp"
             android:gravity="right"
             android:inputType="textPassword"
+            android:fontFamily="@font/sfpro"
+            android:textColor="#000000"
             android:hint="Enter new password"
             android:layout_marginRight="10dp" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ebebeb">
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:id="@+id/logOut"
+        android:text="Log out"
+        android:background="@drawable/button_ios"
+        android:fontFamily="@font/sfpro"
+        android:textColor="#000000"
+        android:backgroundTint="#D3D3D3" />
 
     <!-- Save button -->
     <Button
@@ -132,8 +170,10 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:id="@+id/btnSaveSettings"
-        android:text="Save"
-        android:backgroundTint="#D3D3D3"
-        android:textColor="#000000" />
+        android:text="Save settings"
+        android:background="@drawable/button_ios"
+        android:fontFamily="@font/sfpro"
+        android:textColor="#000000"
+        android:backgroundTint="#D3D3D3" />
 
 </LinearLayout>

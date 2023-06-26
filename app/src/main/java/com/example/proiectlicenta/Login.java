@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 public class Login extends AppCompatActivity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://proiectlicenta-32b5d-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
+    private static final String SHARED_PREFS = "MyPrefs";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +34,23 @@ public class Login extends AppCompatActivity {
         final Button loginBtn = findViewById(R.id.loginBtn);
         final TextView registerNowBtn = findViewById(R.id.registerNowBtn);
 
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String savedPhone = sharedPreferences.getString("phone", null);
+        if (savedPhone != null) {
+            b.putString("phone", savedPhone);
+            Intent intent = new Intent(Login.this, MainActivity.class);
+            intent.putExtras(b);
+            startActivity(intent);
+            finish();
+        }
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 final String phoneTxt = phone.getText().toString();
                 final String passwordTxt = password.getText().toString();
-                
+
                 if(phoneTxt.isEmpty() || passwordTxt.isEmpty()){
                     Toast.makeText(Login.this, "Please enter your mobile or password!", Toast.LENGTH_SHORT).show();
                 }
@@ -54,6 +67,13 @@ public class Login extends AppCompatActivity {
                                 if(getPassword.equals(passwordTxt)){
                                     b.putString("phone",phoneTxt);
                                     Toast.makeText(Login.this, "Login successfully!", Toast.LENGTH_SHORT).show();
+
+                                    // Salvarea informațiilor de autentificare în Shared Preferences
+                                    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("phone", phoneTxt);
+                                    editor.apply();
+
                                     Intent intent = new Intent(Login.this, MainActivity.class);
                                     intent.putExtras(b);
                                     startActivity(intent);

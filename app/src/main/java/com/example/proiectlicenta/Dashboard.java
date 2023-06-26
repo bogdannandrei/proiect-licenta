@@ -348,9 +348,9 @@ public class Dashboard extends Fragment implements SensorEventListener{
 
     void updateViews(){
         totalCalories.setText(String.valueOf(total_calories));
-        tvRightProtein.setText(protein +  " g / "+ daily_protein+ " g");
-        tvRightCarb.setText(carbs +  " g / "+ daily_carb+ " g");
-        tvRightFats.setText(fats +  " g / "+ daily_fats + " g");
+        tvRightProtein.setText(df.format(protein) +  " g / "+ daily_protein+ " g");
+        tvRightCarb.setText(df.format(carbs) +  " g / "+ daily_carb+ " g");
+        tvRightFats.setText(df.format(fats) +  " g / "+ daily_fats + " g");
 
         remainingCalories = total_calories - foodCalories  + exerciseCalories;
         remCalsTv.setText(df.format(remainingCalories));

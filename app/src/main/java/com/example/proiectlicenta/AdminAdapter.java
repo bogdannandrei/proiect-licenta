@@ -4,28 +4,28 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
-public class FoodLogAdapter extends RecyclerView.Adapter<FoodLogAdapter.ViewHolder> {
-    private Context context;
-    private ArrayList<FoodLog> list;
-    private Calendar selectedDate;
-    private OnItemClickListener mListener;
+public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ViewHolder> {
 
-    public FoodLogAdapter(Context context, ArrayList<FoodLog> list, Calendar selectedDate) {
-        this.context = context;
-        this.list = list;
-        this.selectedDate = selectedDate;
-    }
+    Context context;
+    ArrayList<Food> list;
 
     public interface OnItemClickListener {
-        void onItemClick(FoodLog foodLog);
+        void onItemClick(Food food);
+    }
+
+    private OnItemClickListener mListener;
+
+    public AdminAdapter(Context context, ArrayList<Food> list) {
+        this.context = context;
+        this.list = list;
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -35,18 +35,20 @@ public class FoodLogAdapter extends RecyclerView.Adapter<FoodLogAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.diary_entry, parent, false);
-        return new ViewHolder(v);
+        View v = LayoutInflater.from(context).inflate(R.layout.food, parent, false);
+        return new ViewHolder(v, mListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        FoodLog foodLog = list.get(position);
-
-        holder.foodName.setText(foodLog.getFood().getFoodName());
-        holder.calories.setText(String.valueOf(foodLog.getCalories()));
-        holder.servingSize.setText(foodLog.getServingSize() + ", ");
-        holder.brandName.setText(foodLog.getFood().getBrandName());
+        Food food = list.get(position);
+        holder.foodName.setText(food.getFoodName());
+        holder.calories.setText(String.valueOf(food.getCalories()));
+        holder.servingSize.setText("100 gram");
+        holder.brandName.setText(food.getBrandName());
+        if (food.isVerified()) {
+            holder.verified.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -55,17 +57,25 @@ public class FoodLogAdapter extends RecyclerView.Adapter<FoodLogAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
         TextView foodName;
         TextView calories;
         TextView servingSize;
         TextView brandName;
+        ImageView verified;
 
-        public ViewHolder(@NonNull View itemView) {
+        private OnItemClickListener mListener;
+
+        public ViewHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
-            foodName = itemView.findViewById(R.id.foodNameTv);
-            calories = itemView.findViewById(R.id.caloriesTv);
-            servingSize = itemView.findViewById(R.id.servingSizeTv);
-            brandName = itemView.findViewById(R.id.brandNameTv);
+
+            foodName = itemView.findViewById(R.id.foodName);
+            calories = itemView.findViewById(R.id.caloriesNumber);
+            servingSize = itemView.findViewById(R.id.servingSize);
+            brandName = itemView.findViewById(R.id.brandName);
+            verified = itemView.findViewById(R.id.verified);
+
+            mListener = listener;
 
             itemView.setOnClickListener(this);
         }
@@ -78,8 +88,3 @@ public class FoodLogAdapter extends RecyclerView.Adapter<FoodLogAdapter.ViewHold
         }
     }
 }
-
-
-
-
-

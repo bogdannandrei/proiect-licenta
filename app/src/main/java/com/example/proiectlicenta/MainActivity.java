@@ -125,11 +125,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         List<Food> foodList = new ArrayList<>();
 
 
-        foodList.add(new Food(6, "Broccoli", null, null, 55.0, 11.2, 4.2, 0.6, false));
+foodList.add(new Food(6, "Broccoli", null, null, 55.0, 11.2, 4.2, 0.6, false));
 foodList.add(new Food(7, "Pepene verde", null, null, 30.0, 7.6, 0.6, 0.2, false));
 foodList.add(new Food(8, "Seminte de dovleac", null, null, 559.0, 14.7, 29.8, 45.8, false));
 foodList.add(new Food(9, "Linte", null, null, 353.0, 63.0, 25.0, 1.1, false));
@@ -166,17 +165,18 @@ foodList.add(new Food(39, "Sparanghel", null, null, 20.0, 3.7, 2.2, 0.2, false))
 foodList.add(new Food(40, "Avocado", null, null, 160.0, 9.0, 2.0, 14.7, false));
 
 
-        fabFood.setOnClickListener(new View.OnClickListener() {
-            @Override
-                public void onClick(View view) {
-                    for (Food food : foodList) {
-                        DatabaseReference foodRef = databaseReference.push();
-                        foodRef.setValue(food);
-                         }
-            Toast.makeText(MainActivity.this, "Foods added!", Toast.LENGTH_SHORT).show();
+    fabFood.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        databaseReference.setValue(null);
+        for (Food food : foodList) {
+            String foodId = String.valueOf(food.getFoodID());
+            databaseReference.child(foodId).setValue(food);
+        }
+
+        Toast.makeText(MainActivity.this, "Foods added!", Toast.LENGTH_SHORT).show();
     }
-});
- */
+}); */
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

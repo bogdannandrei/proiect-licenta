@@ -18,4 +18,13 @@
         <item name="fontFamily">@font/sfpro</item>
     </style>
 
+    <style name="Theme.ProiectLicenta.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ProiectLicenta.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.ProiectLicenta.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

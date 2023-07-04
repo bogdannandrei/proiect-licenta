@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,9 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
         holder.calories.setText(String.valueOf(food.getCalories()));
         holder.servingSize.setText("100 gram");
         holder.brandName.setText(food.getBrandName());
+        if(food.isVerified()){
+            holder.verified.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -82,6 +86,7 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
         TextView calories;
         TextView servingSize;
         TextView brandName;
+        ImageView verified;
 
         private OnItemClickListener mListener;
 
@@ -92,6 +97,7 @@ public class AddFoodToDiaryAdapter extends RecyclerView.Adapter<AddFoodToDiaryAd
             calories = itemView.findViewById(R.id.caloriesNumber);
             servingSize = itemView.findViewById(R.id.servingSize);
             brandName = itemView.findViewById(R.id.brandName);
+            verified = itemView.findViewById(R.id.verified);
 
             mListener = listener;
 

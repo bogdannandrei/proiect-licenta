@@ -1,25 +1,23 @@
 package com.example.proiectlicenta;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class FoodLog {
-    private String foodName;
+public class FoodLog implements Serializable {
+
+    private Food food;
+    private int foodLogID;
     private String mealType;
     private double calories;
+    private double numberOfServings;
     private double fats;
     private double protein;
     private double carbs;
     private int year;
     private int month;
     private int day;
-
     private String servingSize;
-    private String brandName;
     public FoodLog(){
-
-    }
-    public String getFoodName() {
-        return foodName;
     }
 
     public double getCalories() {
@@ -52,10 +50,6 @@ public class FoodLog {
 
     public String getMealType() {
         return mealType;
-    }
-
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
     }
 
     public void setCalories(double calories) {
@@ -94,22 +88,37 @@ public class FoodLog {
         return servingSize;
     }
 
-    public String getBrandName() {
-        return brandName;
-    }
-
     public void setServingSize(String servingSize) {
         this.servingSize = servingSize;
     }
 
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
+    public int getFoodLogID() {
+        return foodLogID;
+    }
+
+    public void setFoodLogID(int foodLogID) {
+        this.foodLogID = foodLogID;
+    }
+
+    public double getNumberOfServings() {
+        return numberOfServings;
+    }
+
+    public void setNumberOfServings(double numberOfServings) {
+        this.numberOfServings = numberOfServings;
+    }
+
+    public Food getFood() {
+        return food;
+    }
+
+    public void setFood(Food food) {
+        this.food = food;
     }
 
     @Override
     public String toString() {
         return "FoodLog{" +
-                "foodName='" + foodName + '\'' +
                 ", mealType='" + mealType + '\'' +
                 ", calories=" + calories +
                 ", fats=" + fats +
@@ -119,7 +128,6 @@ public class FoodLog {
                 ", month=" + month +
                 ", day=" + day +
                 ", servingSize='" + servingSize + '\'' +
-                ", brandName='" + brandName + '\'' +
                 '}';
     }
 }

@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
-
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
@@ -19,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProiectLicenta"
         tools:targetApi="31">
+        <activity
+            android:name=".EditRemoveFoodLog"
+            android:exported="false" />
+        <activity
+            android:name=".VerifyFood"
+            android:exported="false" />
         <activity
             android:name=".AddMealToDb"
             android:exported="false" />

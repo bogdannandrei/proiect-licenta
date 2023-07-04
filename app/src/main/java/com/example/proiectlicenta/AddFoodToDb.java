@@ -82,6 +82,7 @@ public class AddFoodToDb extends AppCompatActivity {
                 double protein = Double.parseDouble(protein_et.getText().toString().trim());
                 double fats = Double.parseDouble(fats_et.getText().toString().trim());
 
+                food.setFoodID((int)(maxID+1));
                 food.setBrandName(brandname_text);
                 food.setFoodName(foodname_text);
                 food.setBarcode(barcode_text);

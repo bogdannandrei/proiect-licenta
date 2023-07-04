@@ -1,5 +1,6 @@
 package com.example.proiectlicenta;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -181,6 +182,54 @@ public class Diary extends Fragment {
         snacksCalories.setText(snacksSum + " kcal");
         snacksRecyclerView.setAdapter(snacksAdapter);
         snacksAdapter.notifyDataSetChanged();
+
+        if (breakfastAdapter != null) {
+            breakfastAdapter.setOnItemClickListener(new FoodLogAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(FoodLog foodLog) {
+                    Intent i = new Intent(requireContext(), EditRemoveFoodLog.class);
+                    i.putExtra("FoodLog", foodLog);
+                    startActivity(i);
+                    // Toast.makeText(AdminPanel.this, "Food clicked", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        if (lunchAdapter != null) {
+            lunchAdapter.setOnItemClickListener(new FoodLogAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(FoodLog foodLog) {
+                    Intent i = new Intent(requireContext(), EditRemoveFoodLog.class);
+                    i.putExtra("FoodLog", foodLog);
+                    startActivity(i);
+                    // Toast.makeText(AdminPanel.this, "Food clicked", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        if (dinnerAdapter != null) {
+            dinnerAdapter.setOnItemClickListener(new FoodLogAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(FoodLog foodLog) {
+                    Intent i = new Intent(requireContext(), EditRemoveFoodLog.class);
+                    i.putExtra("FoodLog", foodLog);
+                    startActivity(i);
+                    // Toast.makeText(AdminPanel.this, "Food clicked", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        if (snacksAdapter != null) {
+            snacksAdapter.setOnItemClickListener(new FoodLogAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(FoodLog foodLog) {
+                    Intent i = new Intent(requireContext(), EditRemoveFoodLog.class);
+                    i.putExtra("FoodLog", foodLog);
+                    startActivity(i);
+                    // Toast.makeText(AdminPanel.this, "Food clicked", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
 

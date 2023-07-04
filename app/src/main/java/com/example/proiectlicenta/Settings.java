@@ -116,8 +116,6 @@ public class Settings extends Fragment {
         return view;
     }
 
-    // ...
-
     private void logoutUser() {
         // Șterge informațiile de autentificare din Shared Preferences
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
@@ -131,6 +129,4 @@ public class Settings extends Fragment {
         startActivity(intent);
         requireActivity().finish();
     }
-// ...
-
 }

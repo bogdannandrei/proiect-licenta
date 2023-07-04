@@ -162,7 +162,9 @@ public class LogFood extends AppCompatActivity {
             public void onClick(View view) {
                 nrOfServings = Double.parseDouble(numberOfServingsEt.getText().toString());
                 LocalDate date = LocalDate.now();
-                fl.setFoodName(f.getFoodName().toString());
+                fl.setFood(f);
+                fl.setFoodLogID((int)maxID+1);
+                fl.setNumberOfServings(nrOfServings);
                 fl.setYear(date.getYear());
                 fl.setMonth(date.getMonthValue());
                 fl.setDay(date.getDayOfMonth());
@@ -172,11 +174,6 @@ public class LogFood extends AppCompatActivity {
                 fl.setProtein(Double.parseDouble(df.format(f.getProtein() * servingSize * nrOfServings).replace(",",".")));
                 fl.setFats(Double.parseDouble(df.format(f.getFats() * servingSize * nrOfServings).replace(",",".")));
                 fl.setServingSize("100 gram");
-                if(f.getBrandName() == null){
-                    fl.setBrandName(null);
-                } else {
-                    fl.setBrandName(f.getBrandName().toString());
-                }
 
                 databaseReference.child(String.valueOf(maxID+1)).setValue(fl);
                 Toast.makeText(LogFood.this, "Food added to diary succesfully.", Toast.LENGTH_SHORT).show();
